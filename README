@@ -1,0 +1,126 @@
+Welcome to the World of JZuul ($Revision: 1.7 $)
+
+This file explains what you can do by now, what you can't and how to
+do it.
+
+REQUIREMENTS:
+To run JZuul you need a JavaVM which can be obtained from any of the
+below stated sources:
+	http://java.sun.com
+	http://www.research.ibm.com/jikes/
+	http://www.kaffe.org/ *untested*
+	http://gcc.gnu.org/java/ *untested*
+
+After you have installed the JavaVM you have to extract the Zip file
+containing the JZuul Files (as you reed this file, you probably
+already have).
+
+FILE LOCATIONS:
+After you decompressed the file you have a directory called JZuul
+which contains:
+	lib/ 		Libraries needed by JZuul, see LIBRARIES
+	org/jzuul/		JZuul files
+	README			this one
+	rungamefile(.bat)	a script to run games, see GAMES
+
+The org/jzuul tree has the following subdirectories:
+	engine		The JZuul Engine
+	engine/guis	JZuul Engine Guis
+	games		Example Games
+	dtdparser	The JZuul DTDParser
+	
+GAMES:
+The JZuul Engine comes with 2 example games, JKegeln and Zuul. 
+Zuul is a simple textadventure, JKegeln is a simple multi-player game.
+There are several ways to play these games:
+To play the games as the were intended to be you have to run
+
+	java org.jzuul.games.zuul.Zuul 
+
+or
+
+	java org.jzuul.games.kegeln.Kegeln
+
+The games will run in the SwingGui (see GUIS).
+
+For a more dynamic approach you can run the games with the rungamefile
+script (if you are on Windows it is called rungamefile.bat).
+
+This script has several command line options which will be displayed
+if you run it without any options. Most of the parameters are well
+documented, one you might find difficult is -gui, which is therefore
+explained in GUIS.
+
+The first parameter is always a Gamefile, i.e. a XML description of a
+game situated in the directories under org/jzuul/games. 
+
+GUIS:
+The JZuul Engine comes with 3 different GUIs.
+
+	SwingGui: Using SUNs Swing API to provide a mostly ugly and
+	slow user interface.
+
+	SwtGui: Using Eclipse's SWT this GUI provides natural look and
+	feel on all supported platforms.
+
+	TextUi:	A simple user interface working on a console.
+
+To run a game with a different GUI you have to run
+
+	rungamefile some/gamefile.xml -gui SomeGui
+
+where you have to replace the some/gamefile.xml with a path to a real
+Gamefile (look in the games directory, every directory contains a
+initial.xml which describes the game) and SomeGui with the GUI you
+want to use, e.g. SwtGui.
+
+CREATING GAMES:
+There is a start file for Win32 and Linux which starts the gameeditor
+just run "gameditor".
+
+
+TROUBLESHOOTING:
+If any of the above mentioned java commands don't work because they
+complain about missing libraries and/or classes you have to give Java
+some hints where to find the files:
+
+	java -cp lib/xerces.jar:lib/jdom.jar:lib/swt_YOUROS/swt.jar:\
+	lib/swt_YOUROS/swt-pi.jar:./
+	
+will tell Java to take the mentioned Jarfiles and look into them to
+find some classes. The YOUROS must be replaced by the actual directory
+under your lib path which contains the SWT library stuff.
+
+If this doesn't work either and Java complains about missing SO files
+or DLLs you ADDITIONALLY have to provide the path to the native
+libraries coming with SWT which is used by the SwtGui and the Gamefile
+Editor. 
+
+	java -Djava.library.path=lib/swt_YOUROS
+
+will do the trick here. A combination of the -cp switch and the -D
+switch should always lead to a success, otherwise drop me a mail, see
+CONTACT. Don't forget to replace YOUROS with the actual directory name. 
+
+CONTACT
+More documentation and information can be found at www.jzuul.org
+
+If you have any problems feel free to contact one of the authors,
+either marcus@jzuul.org or leh@jzuul.org
+
+LIBRARIES:
+JZuul contains the following 3rd level libraries:
+	
+	JDOM
+	http://www.jdom.org
+	A XML DOM Implementation
+
+	Xerces
+	http://xml.apache.org/xerces2-j
+	A XML Parser Library
+
+	SWT
+	http://www.eclipse.org
+	Standard Widget Toolkit
+
+$Id: README,v 1.7 2004/07/19 15:31:08 marcus Exp $

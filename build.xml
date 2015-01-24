@@ -1,0 +1,231 @@
+<project name="zuul" default="build" basedir=".">
+        <property name="libdir" value="lib"/>
+        <property name="srcdir" value="org/jzuul" />
+        <property name="enginedir" value="${srcdir}/engine" />
+        <property name="gdkdir" value="${srcdir}/gdk" />
+        <property name="dtdparserdir" value="${srcdir}/dtdparser" />
+        <property name="toolsdir" value="${srcdir}/tools" />
+    	<property name="gamesdir" value="${srcdir}/games" />
+	
+            <!-- these are all more or less free: -->
+	<path id="project.class.path">
+		<pathelement location="${libdir}/xerces.jar" />
+		<pathelement location="${libdir}/junit.jar" />
+		<pathelement location="${libdir}/j2h.jar" />
+		<pathelement location="${libdir}/jdom.jar" />
+		<pathelement location="${libdir}/swt_linux/swt.jar" />
+		<pathelement location="${libdir}/swt_linux/swt-pi.jar" />
+	</path>
+
+           <taskdef name="java2html" classname="com.java2html.Java2HTMLTask" classpathref="project.class.path" />
+
+            <target name="build" depends="build-engine,build-gdk,build-tools,build-games">
+            </target>
+
+	<target name="build-engine">
+		<javac compiler="modern" 
+						optimize="on" 
+						srcdir="${enginedir}" 
+						encoding="utf-8"
+						deprecation="on" >
+			<classpath refid="project.class.path" />
+		</javac>
+	</target>
+
+	<target name="build-dtdparser">
+		<javac compiler="modern" 
+						optimize="on" 
+						srcdir="${dtdparserdir}" 
+						encoding="utf-8"
+						deprecation="on" >
+			<classpath refid="project.class.path" />
+		</javac>
+	</target>
+	
+	<target name="build-gdk">
+	            <javac compiler="modern" 
+						optimize="on" 
+						srcdir="${gdkdir}" 
+						encoding="utf-8"
+						deprecation="on" >
+			<classpath refid="project.class.path" />
+		</javac>
+	</target>
+
+	<target name="build-gcj">
+		<mkdir dir="build/gcj" />	
+		<javac 	compiler="gcj" 
+						optimize="on"
+						verbose="on" 
+						srcdir="./${srcdir}" 
+						destdir="build/gcj"
+						encoding="utf-8"
+						deprecation="on"
+						executable="/usr/bin/gcj-wrapper"
+						 >
+			<classpath refid="project.class.path" />
+		</javac>
+	</target>
+
+	<target name="build-tools">
+		<javac compiler="modern" 
+						optimize="on" 
+						srcdir="${toolsdir}" 
+						encoding="utf-8"
+						deprecation="on" >
+			<classpath refid="project.class.path" />
+		</javac>
+	</target>
+
+	<target name="build-games">
+		<javac compiler="modern" 
+						optimize="on" 
+						srcdir="${gamesdir}" 
+						encoding="utf-8"
+						deprecation="on" >
+			<classpath refid="project.class.path" />
+		</javac>
+	</target>
+	
+	<target name="build-jikes">
+		<mkdir dir="build/jikes" />
+		<mkdir dir="build/tmp/org" />
+		<copy todir="build/tmp/org" includeemptydirs="false">
+			<fileset dir="./org" includes="**/*.java">
+			 <exclude name="**/SwingGui.java" />
+			 </fileset>
+		</copy>
+		<replace dir="build/tmp" token="javax.swing" value="swingwtx.swing" />
+		<replace dir="build/tmp" token="org.jzuul.engine.gui.SwingGui" value="org.jzuul.engine.gui.TextUi" />		
+		<replace dir="build/tmp" token="SwingGui(root)" value="TextUi()" />		
+		<javac	compiler="jikes" 
+						optimize="on" 
+						srcdir="build/tmp" 
+						destdir="build/jikes"
+						encoding="utf-8"
+						executable="/usr/bin/jikes-classpath" >
+			<classpath refid="project.class.path" />
+		</javac>
+		<delete dir="build/tmp" />
+	</target>
+	
+	<target name="all-compilers" depends="build,build-gcj,build-jikes" />
+	<target name="free-compilers" depends="build-gcj,build-jikes" />
+
+	<target name="clean">
+		<delete dir="doc" />
+		<delete dir="html" />
+		<delete dir="build/" />
+		<delete dir="dist/" />
+		<delete file="java,policy.applet" />
+		<delete>
+			<fileset dir="./etc" includes="*.bak" />
+			<fileset dir="./etc" includes="*~" />
+			<fileset dir="./" includes="*~" />
+		</delete>
+		<delete>
+			<fileset dir="./" includes="*.jar,foo.xml,bar.xml" />
+                                 
+            <fileset dir="${enginedir}/" includes="*.class" />
+			<fileset dir="${enginedir}/commands/" includes="*.class" />
+			<fileset dir="${enginedir}/exceptions/" includes="*.class" />
+			<fileset dir="${enginedir}/gui/" includes="*.class" />
+			<fileset dir="${enginedir}/rooms/" includes="*.class" />
+			<fileset dir="${enginedir}/test/" includes="*.class" />
+
+			<fileset dir="${srcdir}/games/zuul/" includes="*.class" />
+			<fileset dir="${srcdir}/games/kegeln/" includes="*.class" />
+
+			<fileset dir="${gdkdir}/" includes="*.class" />
+			<fileset dir="${gdkdir}/swt/" includes="*.class" />
+			
+			<fileset dir="${dtdparserdir}/" includes="*.class" />
+		</delete>
+	</target>
+
+	<target name="javadoc">
+		<javadoc destdir="doc" access="private" use="true" notree="false" encoding="utf-8" serialwarn="false" nonavbar="false" noindex="false" splitindex="true" author="true" version="true" nodeprecatedlist="false" nodeprecated="false" sourcepath="." classpath="." doctitle="JZuul" docencoding="utf-8" charset="utf-8">
+
+			<bottom>
+				<![CDATA[<i>Copyright &#169; 2004 <a href="http://www.jzuul.org">JZuul.org</a> All Rights Reserved.</i>
+			<br>
+			This documentation may be distributed and/or modified under the terms of the <a href="http://www.fsf.org/licenses/fdl.html">FDL</a>]]></bottom>
+
+			<link href="http://java.sun.com/j2se/1.4.2/docs/api" />
+			<link href="http://download2.eclipse.org/downloads/documentation/2.0/html/plugins/org.eclipse.platform.doc.isv/reference/api/" />
+			<link href="http://xml.apache.org/xerces2-j/javadocs/api/" />
+			<link href="http://www.jdom.org/docs/apidocs" /> 
+						
+			<classpath refid="project.class.path" />
+
+			<package name="etc" />
+			<package name="lib" />
+
+			<package name="org.jzuul.engine" />
+			<package name="org.jzuul.engine.commands" />
+			<package name="org.jzuul.engine.dtd" />
+			<package name="org.jzuul.engine.exceptions" />
+			<package name="org.jzuul.engine.gui" />
+			<package name="org.jzuul.engine.rooms" />
+
+			<package name="org.jzuul.games.kegeln" />
+			<package name="org.jzuul.games.zuul" />
+
+			<package name="org.jzuul.gdk" />
+			<package name="org.jzuul.gdk.swt" />
+			</javadoc>
+	</target>
+
+	<target name="jar" depends="build,copy-classes,unjar-libs">
+		<jar destfile="jzuul.jar" excludes="*.jar" basedir="./build" index="yes">
+			<manifest>
+				<attribute name="Built-By" value="${user.name}" />
+				<attribute name="Main-Class" value="org.jzuul.games.zuul.Zuul" />
+			</manifest>
+		</jar>
+	</target>
+
+	<target name="source-jar" depends="javadoc">
+		<jar destfile="jzuul-source.jar" excludes="*.jar,*.class" basedir="./">
+			<exclude name="build/" />
+		</jar>
+	</target>
+
+	<target name="unjar-libs">
+		<unjar dest="build/" src="lib/jdom.jar" />
+		<unjar dest="build/" src="lib/xerces.jar" />
+	</target>
+
+	<target name="copy-classes" depends="build">
+		<copy todir="build/${srcdir}" includeemptydirs="false">
+			<fileset dir="./${srcdir}" includes="**/*.class,**/*.xml,**/*.dtd,**/*.png,**/*.jpg,**/*.properties" />
+			<fileset dir="./etc" includes="**/*.png" />
+		</copy>
+	</target>
+
+	<target name="test" depends="build">
+		<java classname="org.jzuul.engine.test.AllTests" >
+			<arg value="-text" />
+			<classpath refid="project.class.path" />
+			<classpath>
+				<dirset dir="./" />
+			</classpath>
+		</java>
+	</target>
+
+	<target name="java2html">
+		<java2html title="JZuul" simple="no" tabsize="4" marginsize="2" header="true" footer="false" destination="html">
+			<fileset dir="./">
+				<include name="**/*.java" />
+			</fileset>
+			<javadoc localRef="doc" />
+		</java2html>
+	</target>
+
+            <target name="distros" depends="build">
+            <mkdir dir="dist"/>
+                <ant antfile="ant/distro.xml"/>
+            	<ant antfile="ant/tardistro.xml"/>
+            </target>
+
+</project>

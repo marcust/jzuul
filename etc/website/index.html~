@@ -1,0 +1,338 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta content="text/html; charset=ISO-8859-1"
+ http-equiv="content-type">
+  <title>JZuul.org</title>
+  <link rel="stylesheet" href="zuulstyles.css" type="text/css">
+</head>
+<body>
+<table style="height: 50%; width: 100%; text-align: left;" border="0"
+ cellpadding="3" cellspacing="2">
+  <tbody>
+    <tr>
+      <td
+ style="vertical-align: top; width: 33%; height: 10%; text-align: center;"><a
+ href="http://www.jzuul.org"><img alt="JZuul Logo" src="logo-big.png"
+ style="border: thin solid black; padding: 7px;"></a><br>
+      </td>
+      <td colspan="1" rowspan="1"
+ style="text-align: center; vertical-align: middle; height: 10%;">
+      <h1><span
+ style="border: thin solid black; padding: 5px; font-weight: bold; font-family: helvetica,arial,sans-serif;">Welcome
+to the JZuul Project Page </span></h1>
+      <br>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"
+ style="vertical-align: top; width: 33%; text-align: center;">&nbsp; <br>
+      <br>
+&nbsp;<br>
+      <table
+ style="border: thin solid black; margin-left: auto; margin-right: auto; width: 50%; text-align: left; border-collapse: collapse;"
+ border="0" cellpadding="1" cellspacing="0">
+        <tbody>
+          <tr>
+            <td
+ style="background-color: rgb(225, 225, 225); vertical-align: middle; white-space: nowrap;"><span
+ style="font-weight: bold;">Play
+JZuul examples</span><br>
+            </td>
+          </tr>
+          <tr>
+            <td style="vertical-align: top; white-space: nowrap;"><a
+ href="jzuul.html">&gt; Zuul Applet</a><br>
+            </td>
+          </tr>
+          <tr>
+            <td style="vertical-align: top; white-space: nowrap;"><a
+ href="jzuul-demo.html">&gt; Zuul
+Demo Applet</a><br>
+            </td>
+          </tr>
+          <tr>
+            <td style="vertical-align: top;"><a href="jkegeln.html">&gt;
+Kegeln Applet</a><br>
+            </td>
+          </tr>
+          <tr>
+            <td style="vertical-align: top;"><a href="fh.html">&gt;
+FH Applet</a><br>
+            </td>
+          </tr>
+          <tr>
+            <td
+ style="background-color: rgb(225, 225, 225); vertical-align: middle; white-space: nowrap;"><span
+ style="font-weight: bold;">Donwload JZuul</span><br>
+            </td>
+          </tr>
+          <tr>
+            <td style="vertical-align: top; white-space: nowrap;"><a
+ href="dist/">&gt; Downloads</a><br>
+            </td>
+          </tr>
+          <tr>
+            <td style="vertical-align: top; white-space: nowrap;"><a
+ href="jzuul-source.jar">&gt; Full Daily Source</a><br>
+            </td>
+          </tr>
+          <tr>
+            <td style="vertical-align: top;"><a
+ href="http://gforge.stud.inf.fh-bonn-rhein-sieg.de/frs/?group_id=96">&gt;
+Milestones</a><br>
+            </td>
+          </tr>
+          <tr>
+            <td
+ style="background-color: rgb(225, 225, 225); vertical-align: middle; white-space: nowrap;"><span
+ style="font-weight: bold;">Docs</span><br>
+            </td>
+          </tr>
+          <tr>
+            <td style="vertical-align: top; white-space: nowrap;"><a
+ href="doc/">&gt; JavaDoc</a><br>
+            </td>
+          </tr>
+          <tr>
+            <td style="vertical-align: top; white-space: nowrap;"><a
+ href="html/">&gt; Java2HTML</a><br>
+            </td>
+          </tr>
+          <tr>
+            <td style="vertical-align: top;"><a href="faq.html">&gt; FAQ</a><br>
+            </td>
+          </tr>
+          <tr>
+            <td style="vertical-align: top;"><a href="README">&gt;
+README</a></td>
+          </tr>
+          <tr>
+            <td style="vertical-align: top;"><a
+ href="gdkdoc/gdk_documentation.html">&gt;
+GDK Doc</a> </td>
+          </tr>
+          <tr>
+            <td style="vertical-align: top;"><a
+ href="http://wiki.thiesen.org/index.php?wiki=JzuulStuff">&gt;
+WikiPage</a><br>
+            </td>
+          </tr>
+          <tr>
+            <td style="vertical-align: top;"><a href="mailto:marcus@jzuul.org">&gt;
+Contact</a><br>
+            </td>
+          </tr>
+          <tr>
+            <td style="vertical-align: top;"><a href="jzuul.sxi">&gt;
+Talk</a><br>
+            </td>
+          </tr>
+          <tr>
+            <td
+ style="background-color: rgb(225, 225, 225); vertical-align: middle; white-space: nowrap;"><span
+ style="font-weight: bold;">About</span><br>
+            </td>
+          </tr>
+          <tr>
+            <td style="vertical-align: top;"><a href="developers.html">&gt;
+Developers</a><br>
+            </td>
+          </tr>
+          <tr>
+            <td
+ style="background-color: rgb(225, 225, 225); vertical-align: middle; white-space: nowrap;"><span
+ style="font-weight: bold;">JZuul GDK</span><br>
+            </td>
+          </tr>
+          <tr>
+            <td style="vertical-align: top;"><a href="screenshots.html">&gt;
+Screenshots</a><br>
+            </td>
+          </tr>
+          <tr>
+            <td
+ style="background-color: rgb(225, 225, 225); vertical-align: middle; white-space: nowrap;"><span
+ style="font-weight: bold;">Development</span><br>
+            </td>
+          </tr>
+          <tr>
+            <td style="vertical-align: top; white-space: nowrap;"><a
+ href="ChangeLog">&gt; Changelog</a><br>
+            </td>
+          </tr>
+          <tr>
+            <td style="vertical-align: top; white-space: nowrap;"><a
+ href="http://www.jzuul.org/component_chart.png">&gt; Components</a><br>
+            </td>
+          </tr>
+          <tr>
+            <td style="vertical-align: top; white-space: nowrap;"> <a
+ href="http://jzuul.org/uml/uml.html">&gt; UML</a><br>
+            </td>
+          </tr>
+          <tr>
+            <td style="vertical-align: top; white-space: nowrap;"><a
+ href="http://www.jzuul.org/project_schedule.png">&gt; Schedule</a><br>
+            </td>
+          </tr>
+          <tr>
+            <td style="vertical-align: top; white-space: nowrap;"><a
+ href="http://gforge.stud.inf.fh-bonn-rhein-sieg.de/pm/?group_id=96">&gt;
+Tasks</a><br>
+            </td>
+          </tr>
+          <tr>
+            <td style="vertical-align: top; white-space: nowrap;"><a
+ href="http://gforge.stud.inf.fh-bonn-rhein-sieg.de/tracker/?atid=350116&amp;group_id=96&amp;func=browse">&gt;
+Bugs</a><br>
+            </td>
+          </tr>
+          <tr>
+            <td style="vertical-align: top; white-space: nowrap;"><a
+ href="XML/gamefile.dtd">&gt; DTD
+File</a><br>
+            <a href="dtdtree.txt">&gt; DTD Tree View</a><br>
+            </td>
+          </tr>
+          <tr>
+            <td style="vertical-align: top;"><a href="tests.txt">&gt;
+Test Results</a></td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+      <td colspan="1" rowspan="1"
+ style="border: thin solid black; background-color: rgb(225, 225, 225); vertical-align: top;">
+      <h3 style="text-decoration: underline;">News</h3>
+      <br>
+      <span style="font-style: italic; text-decoration: underline;">&gt;
+25.07.2004 i18n </span>JZuul has internationalisation now. The Engine
+and the GDK are now available in both, English and German. Furthermore,
+the Engine take the current locale into consideration when loading the
+games, therefore it is possible to translate the games. If you want to
+do a translation, see the FAQ for details.<br>
+      <br>
+      <span style="font-style: italic; text-decoration: underline;">&gt;
+23.07.2004 WANTED: Game Designer</span> The Engine and the editor are
+nearly stable, all we need are some games running on the engine. If YOU
+created a nice game, we would love to publish it on this page!<br>
+      <br>
+      <span style="font-style: italic; text-decoration: underline;">&gt;
+21.07.2004 JZuul Got Gold</span> The Core Developers had their oral
+exam about the JZuul Project today and both got a 1,0 (which is the
+best mark in German universities)<br>
+      <br>
+      <span style="font-style: italic; text-decoration: underline;">&gt;
+21.07.2004 JZuul RC 1</span> The JZuul Project proudly announces the
+Release Candidate 1 of the JZuul Engine and the JZuul Game Editor. Try
+it out.<br>
+      <br>
+      <span style="font-style: italic; text-decoration: underline;">&gt;
+19.07.2004 GDK Beta</span> OK, after a couple of days with lots of
+fixed bugs, where now close to what will be our RC 1 for the whole
+JZuul project. Check out the latest builds at the <a href="dist/">Binary
+Builds</a> Page.<br>
+      <br>
+      <span style="font-style: italic; text-decoration: underline;">&gt;
+16.07.2004 New Screenshot/Alpha II</span> We did a lot of Bugfixing and
+added new Screenshots of the new &amp; fancy GameEditor<br>
+      <br>
+      <span style="font-style: italic; text-decoration: underline;">&gt;
+15.07.2004 Game Editor Alpha</span> We are still here!! The GameEditor
+is in a better shape than expected, so have a look at the binary builds
+and report any bugs back.<br>
+      <br>
+      <span style="font-style: italic; text-decoration: underline;">&gt;
+09.06.2004 JZuul Binary Builds </span>Because the files got rather big
+by now, we provide a
+build for each SWT Platform we support.<br>
+      <br>
+      <span style="font-style: italic; text-decoration: underline;"> </span><span
+ style="font-style: italic; text-decoration: underline;">&gt;
+01.06.2004 JZuul DevCon </span> The first JZuul developer convention
+will take place on
+June 3rd in the <a href="http://www.netzladen.org">Netzladen</a>. Any
+other developers are welcome :-) Main target is to keep up with the
+Milestone plan and get a working alpha of the game editor.<br>
+      <br>
+      <span style="font-style: italic; text-decoration: underline;">&gt;
+22.05.2004 First Screenshots of the GDK </span>
+      <div style="text-align: justify;">The first Screenshots of the
+upcoming Game Development Kit for the JZuul Engine can be found on the <a
+ href="screenshots.html">Screenshots</a> page.<br>
+      <span style="font-style: italic; text-decoration: underline;"></span>
+      </div>
+      <span style="font-style: italic; text-decoration: underline;"><br>
+&gt;
+21.05.2004 FAQ </span>
+      <div style="text-align: justify;">We got a new FAQ and got back
+to build daily versions, the
+Milestones are available from the GForge project page.<span
+ style="font-style: italic; text-decoration: underline;"></span><br>
+      <span style="font-style: italic; text-decoration: underline;"></span></div>
+      <span style="font-style: italic; text-decoration: underline;"> </span><br>
+      <span style="font-style: italic; text-decoration: underline;">&gt;
+15.05.2004 JZuul Milestone 1</span><span style="font-style: italic;"> </span>
+      <div style="text-align: justify;">In perfect harmony with our <a
+ href="http://www.jzuul.org/project_schedule.png">release schedule</a>
+Milestone 1 was released today. New features include the new Target
+Manager to add support for dynamic generated tasks during a game. Know
+Issues: Saving and Loading won't work at the moment because the XML
+writing code needs a rewrite. If you depend on these features wait for
+Milestone 2.<br>
+      <br>
+Update: Added the UML stuff. (Yeah right - JZuul's origin is an
+university project and that's why we have to provide those ugly uml
+charts :-D ).<span style="font-style: italic;"></span><br>
+      <span style="font-style: italic;"></span></div>
+      <br>
+      <h3 style="text-decoration: underline;">What is JZuul?</h3>
+      <div style="text-align: justify;">JZuul is a text adventure and
+interactive fiction framework written in Java created during an
+University course in Object
+Oriented Software Engineering. The JZuul Project consists of two major
+parts: the JZuul Engine and the JZuul Game Editor. The Engine is an
+abstract base for games, providing features such as a dialog system,
+iteractive objects and non-player characters, multiplayer capabilities,
+saving and loading, and maps. The Game Editor is a SWT based GUI for
+easily creating XML Gamefiles running on the Engine. Those two
+components
+together form the base for easy game creation and lots of hours of
+gaming....<br>
+      </div>
+      <br>
+      <div style="text-align: justify;">JZuul
+is free software as it distributed under the terms of the <a
+ href="LICENSE">GNU General Public License Version 2</a>. A German <a
+ href="LICENSE.DE">translation</a> of the GPL is also available. </div>
+      <br>
+      <h3 style="text-decoration: underline;">Usage</h3>
+      <div style="text-align: justify;">Have a look at the<a
+ href="README"> README</a>.<br>
+      <br>
+      <br>
+      <br>
+      <br>
+      </div>
+      <br>
+      <div style="text-align: right;"> <a
+ href="http://jigsaw.w3.org/css-validator/"> <img
+ style="border: 0pt none ; width: 88px; height: 31px;"
+ src="http://jigsaw.w3.org/css-validator/images/vcss" alt="Valid CSS!">
+      </a> <a href="http://validator.w3.org/check?uri=referer"><img
+ src="http://www.w3.org/Icons/valid-html401" alt="Valid HTML 4.01!"
+ border="0" height="31" width="88"></a> <a href="http://www.nvu.com"><img
+ style="text-align: right;" src="http://www.nvu.com/made-with-Nvu-t.png"
+ alt="Document made with Nvu" border="0" height="35"></a> </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<div style="text-align: right;"><small><small>
+Last Updated: $Date: 2004/08/05 09:08:13 $ by $Author: marcus $</small></small>
+</div>
+<br>
+<br>
+</body>
+</html>

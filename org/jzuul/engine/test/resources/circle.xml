@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/org/jzuul/engine/dtd/gamefile.xsl" ?>
+<!DOCTYPE gamefile SYSTEM "file:org/jzuul/engine/dtd/gamefile.dtd">
+<gamefile version="1.0">
+<map name="default" startroom="test1">
+<room class="org.jzuul.engine.rooms.Room" name="test1">
+	<description>ein Testraum</description>
+	<ways>
+		<way direction="north" room="test2" />
+	</ways>
+</room>
+<room class="org.jzuul.engine.rooms.Room" name="test2">
+	<description>ein Testraum 2</description>
+	<ways>
+		<way direction="north" room="test1" />
+	</ways>
+</room>
+</map>
+</gamefile>

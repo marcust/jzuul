@@ -1,0 +1,395 @@
+
+
+
+
+DDeeuuttsscchhee ÜÜbbeerrsseettzzuunngg ddeerr
+GGNNUU GGeenneerraall PPuubblliicc LLiicceennssee
+Erstellt im Auftrag der S.u.S.E. GmbH http://www.suse.de
+von Katja Lachmann Übersetzungen,
+überarbeitet von Peter Gerwinski, G-N-U GmbH http://www.g-n-u.de
+(31. Oktober 1996, 4. Juni 2000)
+
+Diese Übersetzung wird mit der Absicht angeboten, das Verständnis der GGNNUU
+GGeenneerraall PPuubblliicc LLiicceennssee (GNU-GPL) zu erleichtern. Es handelt sich jedoch nicht
+um eine offizielle oder im rechtlichen Sinne anerkannte Übersetzung.
+Die FFrreeee SSooffttwwaarree FFoouunnddaattiioonn (FSF) ist nicht der Herausgeber dieser
+Übersetzung, und sie hat diese Übersetzung auch nicht als rechtskräftigen
+Ersatz für die Original-GNU-GPL anerkannt. Da die Übersetzung nicht sorgfältig
+von Anwälten überprüft wurde, können die Übersetzer nicht garantieren, daß die
+Übersetzung die rechtlichen Aussagen der GNU-GPL exakt wiedergibt. Wenn Sie
+sichergehen wollen, daß von Ihnen geplante Aktivitäten im Sinne der GNU-GPL
+gestattet sind, halten Sie sich bitte an die englischsprachige Originalversion.
+Die FFrreeee SSooffttwwaarree FFoouunnddaattiioonn möchte Sie darum bitten, diese Übersetzung nicht
+als offizielle Lizenzbedingungen für von Ihnen geschriebene Programme zu
+verwenden. Bitte benutzen Sie hierfür stattdessen die von der FFrreeee SSooffttwwaarree
+FFoouunnddaattiioonn herausgegebene englischsprachige Originalversion.
+
+TThhiiss iiss aa ttrraannssllaattiioonn ooff tthhee GGNNUU GGeenneerraall PPuubblliicc LLiicceennssee iinnttoo GGeerrmmaann.. TThhiiss
+ttrraannssllaattiioonn iiss ddiissttrriibbuutteedd iinn tthhee hhooppee tthhaatt iitt wwiillll ffaacciilliittaattee uunnddeerrssttaannddiinngg,,
+bbuutt iitt iiss nnoott aann ooffffiicciiaall oorr lleeggaallllyy aapppprroovveedd ttrraannssllaattiioonn..
+TThhee FFrreeee SSooffttwwaarree FFoouunnddaattiioonn iiss nnoott tthhee ppuubblliisshheerr ooff tthhiiss ttrraannssllaattiioonn aanndd hhaass
+nnoott aapppprroovveedd iitt aass aa lleeggaall ssuubbssttiittuuttee ffoorr tthhee aauutthheennttiicc GGNNUU GGeenneerraall PPuubblliicc
+LLiicceennssee.. TThhee ttrraannssllaattiioonn hhaass nnoott bbeeeenn rreevviieewweedd ccaarreeffuullllyy bbyy llaawwyyeerrss,, aanndd
+tthheerreeffoorree tthhee ttrraannssllaattoorr ccaannnnoott bbee ssuurree tthhaatt iitt eexxaaccttllyy rreepprreesseennttss tthhee lleeggaall
+mmeeaanniinngg ooff tthhee GGNNUU GGeenneerraall PPuubblliicc LLiicceennssee.. IIff yyoouu wwiisshh ttoo bbee ssuurree wwhheetthheerr yyoouurr
+ppllaannnneedd aaccttiivviittiieess aarree ppeerrmmiitttteedd bbyy tthhee GGNNUU GGeenneerraall PPuubblliicc LLiicceennssee,, pplleeaassee
+rreeffeerr ttoo tthhee aauutthheennttiicc EEnngglliisshh vveerrssiioonn..
+TThhee FFrreeee SSooffttwwaarree FFoouunnddaattiioonn ssttrroonnggllyy uurrggeess yyoouu nnoott ttoo uussee tthhiiss ttrraannssllaattiioonn aass
+tthhee ooffffiicciiaall ddiissttrriibbuuttiioonn tteerrmmss ffoorr yyoouurr pprrooggrraammss;; iinnsstteeaadd,, pplleeaassee uussee tthhee
+aauutthheennttiicc EEnngglliisshh vveerrssiioonn ppuubblliisshheedd bbyy tthhee FFrreeee SSooffttwwaarree FFoouunnddaattiioonn..
+                   ************ GGNNUU GGeenneerraall PPuubblliicc LLiicceennssee ************
+                 DDeeuuttsscchhee ÜÜbbeerrsseettzzuunngg ddeerr VVeerrssiioonn 22,, JJuunnii 11999911
+            CCooppyyrriigghhtt ©© 11998899,, 11999911 FFrreeee SSooffttwwaarree FFoouunnddaattiioonn,, IInncc..
+
+            5599 TTeemmppllee PPllaaccee,, SSuuiittee 333300,, BBoossttoonn,, MMAA 0022111111--11330077,, UUSSAA
+_p_e_t_e_r_@_g_e_r_w_i_n_s_k_i_._d_e
+Es ist jedermann gestattet, diese Lizenzurkunde zu vervielfältigen und
+unveränderte Kopien zu verbreiten; Änderungen sind jedoch nicht erlaubt.
+
+DDiieessee ÜÜbbeerrsseettzzuunngg iisstt kkeeiinn rreecchhttsskkrrääffttiiggeerr EErrssaattzz ffüürr ddiiee eenngglliisscchhsspprraacchhiiggee
+OOrriiggiinnaallvveerrssiioonn!!
+************ VVoorrwwoorrtt ************
+Die meisten Softwarelizenzen sind daraufhin entworfen worden, Ihnen die
+Freiheit zu nehmen, die Software weiterzugeben und zu verändern. Im Gegensatz
+dazu soll Ihnen die GGNNUU GGeenneerraall PPuubblliicc LLiicceennssee , die Allgemeine Öffentliche
+GNU-Lizenz, ebendiese Freiheit garantieren. Sie soll sicherstellen, daß die
+Software für alle Benutzer frei ist. Diese Lizenz gilt für den Großteil der von
+der FFrreeee SSooffttwwaarree FFoouunnddaattiioonn herausgegebenen Software und für alle anderen
+Programme, deren Autoren ihr Datenwerk dieser Lizenz unterstellt haben. Auch
+Sie können diese Möglichkeit der Lizenzierung für Ihre Programme anwenden. (Ein
+anderer Teil der Software der FFrreeee SSooffttwwaarree FFoouunnddaattiioonn unterliegt stattdessen
+der GGNNUU LLiibbrraarryy GGeenneerraall PPuubblliicc LLiicceennssee , der Allgemeinen Öffentlichen GNU-
+Lizenz für Bibliotheken.) [Mittlerweile wurde die GNU Library Public License
+von der GNU Lesser Public License abgelöst - Anmerkung des Übersetzers.]
+Die Bezeichnung ,,,,ffrreeiiee```` SSooffttwwaarree bezieht sich auf Freiheit, nicht auf den
+Preis. Unsere Lizenzen sollen Ihnen die Freiheit garantieren, Kopien freier
+Software zu verbreiten (und etwas für diesen Service zu berechnen, wenn Sie
+möchten), die Möglichkeit, die Software im Quelltext zu erhalten oder den
+Quelltext auf Wunsch zu bekommen. Die Lizenzen sollen garantieren, daß Sie die
+Software ändern oder Teile davon in neuen freien Programmen verwenden dürfen -
+und daß Sie wissen, daß Sie dies alles tun dürfen.
+Um Ihre Rechte zu schützen, müssen wir Einschränkungen machen, die es jedem
+verbieten, Ihnen diese Rechte zu verweigern oder Sie aufzufordern, auf diese
+Rechte zu verzichten. Aus diesen Einschränkungen folgen bestimmte
+Verantwortlichkeiten für Sie, wenn Sie Kopien der Software verbreiten oder sie
+verändern.
+Beispielsweise müssen Sie den Empfängern alle Rechte gewähren, die Sie selbst
+haben, wenn Sie - kostenlos oder gegen Bezahlung - Kopien eines solchen
+Programms verbreiten. Sie müssen sicherstellen, daß auch die Empfänger den
+Quelltext erhalten bzw. erhalten können. Und Sie müssen ihnen diese Bedingungen
+zeigen, damit sie ihre Rechte kennen.
+Wir schützen Ihre Rechte in zwei Schritten: (1) Wir stellen die Software unter
+ein Urheberrecht (Copyright), und (2) wir bieten Ihnen diese Lizenz an, die
+Ihnen das Recht gibt, die Software zu vervielfältigen, zu verbreiten und/oder
+zu verändern.
+Um die Autoren und uns zu schützen, wollen wir darüberhinaus sicherstellen, daß
+jeder erfährt, daß für diese freie Software keinerlei Garantie besteht. Wenn
+die Software von jemand anderem modifiziert und weitergegeben wird, möchten
+wir, daß die Empfänger wissen, daß sie nicht das Original erhalten haben, damit
+irgendwelche von anderen verursachte Probleme nicht den Ruf des ursprünglichen
+Autors schädigen.
+Schließlich und endlich ist jedes freie Programm permanent durch Software-
+Patente bedroht. Wir möchten die Gefahr ausschließen, daß Distributoren eines
+freien Programms individuell Patente lizensieren - mit dem Ergebnis, daß das
+Programm proprietär würde. Um dies zu verhindern, haben wir klargestellt, daß
+jedes Patent entweder für freie Benutzung durch jedermann lizenziert werden muß
+oder überhaupt nicht lizenziert werden darf.
+Es folgen die genauen Bedingungen für die Vervielfältigung, Verbreitung und
+Bearbeitung:
+AAllllggeemmeeiinnee ÖÖffffeennttlliicchhee GGNNUU--LLiizzeennzz
+BBeeddiinngguunnggeenn ffüürr ddiiee VVeerrvviieellffäällttiigguunngg,,
+VVeerrbbrreeiittuunngg uunndd BBeeaarrbbeeiittuunngg
+§0. Diese Lizenz gilt für jedes Programm und jedes andere Datenwerk, in dem ein
+entsprechender Vermerk des Copyright-Inhabers darauf hinweist, daß das
+Datenwerk unter den Bestimmungen dieser GGeenneerraall PPuubblliicc LLiicceennssee verbreitet
+werden darf. Im folgenden wird jedes derartige Programm oder Datenwerk als
+,,das Programm`` bezeichnet; die Formulierung ,,auf dem Programm basierendes
+Datenwerk`` bezeichnet das Programm sowie jegliche Bearbeitung des Programms im
+urheberrechtlichen Sinne, also ein Datenwerk, welches das Programm, auch
+auszugsweise, sei es unverändert oder verändert und/oder in eine andere Sprache
+übersetzt, enthält. (Im folgenden wird die Übersetzung ohne Einschränkung als
+,,Bearbeitung`` eingestuft.) Jeder Lizenznehmer wird im folgenden als ,,Sie``
+angesprochen.
+Andere Handlungen als Vervielfältigung, Verbreitung und Bearbeitung werden von
+dieser Lizenz nicht berührt; sie fallen nicht in ihren Anwendungsbereich. Der
+Vorgang der Ausführung des Programms wird nicht eingeschränkt, und die Ausgaben
+des Programms unterliegen dieser Lizenz nur, wenn der Inhalt ein auf dem
+Programm basierendes Datenwerk darstellt (unabhängig davon, daß die Ausgabe
+durch die Ausführung des Programmes erfolgte). Ob dies zutrifft, hängt von den
+Funktionen des Programms ab.
+§1. Sie dürfen auf beliebigen Medien unveränderte Kopien des Quelltextes des
+Programms, wie sie ihn erhalten haben, anfertigen und verbreiten. Voraussetzung
+hierfür ist, daß Sie mit jeder Kopie einen entsprechenden Copyright-Vermerk
+sowie einen Haftungsausschluß veröffentlichen, alle Vermerke, die sich auf
+diese Lizenz und das Fehlen einer Garantie beziehen, unverändert lassen und
+desweiteren allen anderen Empfängern des Programms zusammen mit dem Programm
+eine Kopie dieser Lizenz zukommen lassen.
+Sie dürfen für den eigentlichen Kopiervorgang eine Gebühr verlangen. Wenn Sie
+es wünschen, dürfen Sie auch gegen Entgelt eine Garantie für das Programm
+anbieten.
+§2. Sie dürfen Ihre Kopie(n) des Programms oder eines Teils davon verändern,
+wodurch ein auf dem Programm basierendes Datenwerk entsteht; Sie dürfen
+derartige Bearbeitungen unter den Bestimmungen von Paragraph 1 vervielfältigen
+und verbreiten, vorausgesetzt, daß zusätzlich alle im folgenden genannten
+Bedingungen erfüllt werden:
+  1.
+      Sie müssen die veränderten Dateien mit einem auffälligen Vermerk
+      versehen, der auf die von Ihnen vorgenommene Modifizierung und das Datum
+      jeder Änderung hinweist.
+  2.
+      Sie müssen dafür sorgen, daß jede von Ihnen verbreitete oder
+      veröffentlichte Arbeit, die ganz oder teilweise von dem Programm oder
+      Teilen davon abgeleitet ist, Dritten gegenüber als Ganzes unter den
+      Bedingungen dieser Lizenz ohne Lizenzgebühren zur Verfügung gestellt
+      wird.
+  3.
+      Wenn das veränderte Programm normalerweise bei der Ausführung interaktiv
+      Kommandos einliest, müssen Sie dafür sorgen, daß es, wenn es auf dem
+      üblichsten Wege für solche interaktive Nutzung gestartet wird, eine
+      Meldung ausgibt oder ausdruckt, die einen geeigneten Copyright-Vermerk
+      enthält sowie einen Hinweis, daß es keine Gewährleistung gibt (oder
+      anderenfalls, daß Sie Garantie leisten), und daß die Benutzer das
+      Programm unter diesen Bedingungen weiter verbreiten dürfen. Auch muß der
+      Benutzer darauf hingewiesen werden, wie er eine Kopie dieser Lizenz
+      ansehen kann. (Ausnahme: Wenn das Programm selbst interaktiv arbeitet,
+      aber normalerweise keine derartige Meldung ausgibt, muß Ihr auf dem
+      Programm basierendes Datenwerk auch keine solche Meldung ausgeben).
+Diese Anforderungen gelten für das bearbeitete Datenwerk als Ganzes. Wenn
+identifizierbare Teile des Datenwerkes nicht von dem Programm abgeleitet sind
+und vernünftigerweise als unabhängige und eigenständige Datenwerke für sich
+selbst zu betrachten sind, dann gelten diese Lizenz und ihre Bedingungen nicht
+für die betroffenen Teile, wenn Sie diese als eigenständige Datenwerke
+weitergeben. Wenn Sie jedoch dieselben Abschnitte als Teil eines Ganzen
+weitergeben, das ein auf dem Programm basierendes Datenwerk darstellt, dann muß
+die Weitergabe des Ganzen nach den Bedingungen dieser Lizenz erfolgen, deren
+Bedingungen für weitere Lizenznehmer somit auf das gesamte Ganze ausgedehnt
+werden - und somit auf jeden einzelnen Teil, unabhängig vom jeweiligen Autor.
+Somit ist es nicht die Absicht dieses Abschnittes, Rechte für Datenwerke in
+Anspruch zu nehmen oder Ihnen die Rechte für Datenwerke streitig zu machen, die
+komplett von Ihnen geschrieben wurden; vielmehr ist es die Absicht, die Rechte
+zur Kontrolle der Verbreitung von Datenwerken, die auf dem Programm basieren
+oder unter seiner auszugsweisen Verwendung zusammengestellt worden sind,
+auszuüben.
+Ferner bringt auch das einfache Zusammenlegen eines anderen Datenwerkes, das
+nicht auf dem Programm basiert, mit dem Programm oder einem auf dem Programm
+basierenden Datenwerk auf ein- und demselben Speicher- oder Vertriebsmedium
+dieses andere Datenwerk nicht in den Anwendungsbereich dieser Lizenz.
+§3. Sie dürfen das Programm (oder ein darauf basierendes Datenwerk gemäß
+Paragraph 2) als Objectcode oder in ausführbarer Form unter den Bedingungen der
+Paragraphen 1 und 2 kopieren und weitergeben - vorausgesetzt, daß Sie außerdem
+eine der folgenden Leistungen erbringen:
+  1.
+      Liefern Sie das Programm zusammen mit dem vollständigen zugehörigen
+      maschinenlesbaren Quelltext auf einem für den Datenaustausch üblichen
+      Medium aus, wobei die Verteilung unter den Bedingungen der Paragraphen 1
+      und 2 erfolgen muß. Oder:
+  2.
+      Liefern Sie das Programm zusammen mit einem mindestens drei Jahre lang
+      gültigen schriftlichen Angebot aus, jedem Dritten eine vollständige
+      maschinenlesbare Kopie des Quelltextes zur Verfügung zu stellen - zu
+      nicht höheren Kosten als denen, die durch den physikalischen
+      Kopiervorgang anfallen -, wobei der Quelltext unter den Bedingungen der
+      Paragraphen 1 und 2 auf einem für den Datenaustausch üblichen Medium
+      weitergegeben wird. Oder:
+  3.
+      Liefern Sie das Programm zusammen mit dem schriftlichen Angebot der
+      Zurverfügungstellung des Quelltextes aus, das Sie selbst erhalten haben.
+      (Diese Alternative ist nur für nicht-kommerzielle Verbreitung zulässig
+      und nur, wenn Sie das Programm als Objectcode oder in ausführbarer Form
+      mit einem entsprechenden Angebot gemäß Absatz b erhalten haben.)
+Unter dem Quelltext eines Datenwerkes wird diejenige Form des Datenwerkes
+verstanden, die für Bearbeitungen vorzugsweise verwendet wird. Für ein
+ausführbares Programm bedeutet ,,der komplette Quelltext``: Der Quelltext aller
+im Programm enthaltenen Module einschließlich aller zugehörigen
+Modulschnittstellen-Definitionsdateien sowie der zur Compilation und
+Installation verwendeten Skripte. Als besondere Ausnahme jedoch braucht der
+verteilte Quelltext nichts von dem zu enthalten, was üblicherweise (entweder
+als Quelltext oder in binärer Form) zusammen mit den Hauptkomponenten des
+Betriebssystems (Kernel, Compiler usw.) geliefert wird, unter dem das Programm
+läuft - es sei denn, diese Komponente selbst gehört zum ausführbaren Programm.
+Wenn die Verbreitung eines ausführbaren Programms oder von Objectcode dadurch
+erfolgt, daß der Kopierzugriff auf eine dafür vorgesehene Stelle gewährt wird,
+so gilt die Gewährung eines gleichwertigen Zugriffs auf den Quelltext als
+Verbreitung des Quelltextes, auch wenn Dritte nicht dazu gezwungen sind, den
+Quelltext zusammen mit dem Objectcode zu kopieren.
+§4. Sie dürfen das Programm nicht vervielfältigen, verändern, weiter
+lizenzieren oder verbreiten, sofern es nicht durch diese Lizenz ausdrücklich
+gestattet ist. Jeder anderweitige Versuch der Vervielfältigung, Modifizierung,
+Weiterlizenzierung und Verbreitung ist nichtig und beendet automatisch Ihre
+Rechte unter dieser Lizenz. Jedoch werden die Lizenzen Dritter, die von Ihnen
+Kopien oder Rechte unter dieser Lizenz erhalten haben, nicht beendet, solange
+diese die Lizenz voll anerkennen und befolgen.
+§5. Sie sind nicht verpflichtet, diese Lizenz anzunehmen, da Sie sie nicht
+unterzeichnet haben. Jedoch gibt Ihnen nichts anderes die Erlaubnis, das
+Programm oder von ihm abgeleitete Datenwerke zu verändern oder zu verbreiten.
+Diese Handlungen sind gesetzlich verboten, wenn Sie diese Lizenz nicht
+anerkennen. Indem Sie das Programm (oder ein darauf basierendes Datenwerk)
+verändern oder verbreiten, erklären Sie Ihr Einverständnis mit dieser Lizenz
+und mit allen ihren Bedingungen bezüglich der Vervielfältigung, Verbreitung und
+Veränderung des Programms oder eines darauf basierenden Datenwerks.
+§6. Jedesmal, wenn Sie das Programm (oder ein auf dem Programm basierendes
+Datenwerk) weitergeben, erhält der Empfänger automatisch vom ursprünglichen
+Lizenzgeber die Lizenz, das Programm entsprechend den hier festgelegten
+Bestimmungen zu vervielfältigen, zu verbreiten und zu verändern. Sie dürfen
+keine weiteren Einschränkungen der Durchsetzung der hierin zugestandenen Rechte
+des Empfängers vornehmen. Sie sind nicht dafür verantwortlich, die Einhaltung
+dieser Lizenz durch Dritte durchzusetzen.
+§7. Sollten Ihnen infolge eines Gerichtsurteils, des Vorwurfs einer
+Patentverletzung oder aus einem anderen Grunde (nicht auf Patentfragen
+begrenzt) Bedingungen (durch Gerichtsbeschluß, Vergleich oder anderweitig)
+auferlegt werden, die den Bedingungen dieser Lizenz widersprechen, so befreien
+Sie diese Umstände nicht von den Bestimmungen dieser Lizenz. Wenn es Ihnen
+nicht möglich ist, das Programm unter gleichzeitiger Beachtung der Bedingungen
+in dieser Lizenz und Ihrer anderweitigen Verpflichtungen zu verbreiten, dann
+dürfen Sie als Folge das Programm überhaupt nicht verbreiten. Wenn zum Beispiel
+ein Patent nicht die gebührenfreie Weiterverbreitung des Programms durch
+diejenigen erlaubt, die das Programm direkt oder indirekt von Ihnen erhalten
+haben, dann besteht der einzige Weg, sowohl das Patentrecht als auch diese
+Lizenz zu befolgen, darin, ganz auf die Verbreitung des Programms zu
+verzichten.
+Sollte sich ein Teil dieses Paragraphen als ungültig oder unter bestimmten
+Umständen nicht durchsetzbar erweisen, so soll dieser Paragraph seinem Sinne
+nach angewandt werden; im übrigen soll dieser Paragraph als Ganzes gelten.
+Zweck dieses Paragraphen ist nicht, Sie dazu zu bringen, irgendwelche Patente
+oder andere Eigentumsansprüche zu verletzen oder die Gültigkeit solcher
+Ansprüche zu bestreiten; dieser Paragraph hat einzig den Zweck, die Integrität
+des Verbreitungssystems der freien Software zu schützen, das durch die Praxis
+öffentlicher Lizenzen verwirklicht wird. Viele Leute haben großzügige Beiträge
+zu dem großen Angebot der mit diesem System verbreiteten Software im Vertrauen
+auf die konsistente Anwendung dieses Systems geleistet; es liegt am Autor/
+Geber, zu entscheiden, ob er die Software mittels irgendeines anderen Systems
+verbreiten will; ein Lizenznehmer hat auf diese Entscheidung keinen Einfluß.
+Dieser Paragraph ist dazu gedacht, deutlich klarzustellen, was als Konsequenz
+aus dem Rest dieser Lizenz betrachtet wird.
+§8. Wenn die Verbreitung und/oder die Benutzung des Programms in bestimmten
+Staaten entweder durch Patente oder durch urheberrechtlich geschützte
+Schnittstellen eingeschränkt ist, kann der Urheberrechtsinhaber, der das
+Programm unter diese Lizenz gestellt hat, eine explizite geographische
+Begrenzung der Verbreitung angeben, in der diese Staaten ausgeschlossen werden,
+so daß die Verbreitung nur innerhalb und zwischen den Staaten erlaubt ist, die
+nicht ausgeschlossen sind. In einem solchen Fall beinhaltet diese Lizenz die
+Beschränkung, als wäre sie in diesem Text niedergeschrieben.
+§9. Die FFrreeee SSooffttwwaarree FFoouunnddaattiioonn kann von Zeit zu Zeit überarbeitete und/oder
+neue Versionen der GGeenneerraall PPuubblliicc LLiicceennssee veröffentlichen. Solche neuen
+Versionen werden vom Grundprinzip her der gegenwärtigen entsprechen, können
+aber im Detail abweichen, um neuen Problemen und Anforderungen gerecht zu
+werden.
+Jede Version dieser Lizenz hat eine eindeutige Versionsnummer. Wenn in einem
+Programm angegeben wird, daß es dieser Lizenz in einer bestimmten
+Versionsnummer oder ,,jeder späteren Version`` ((````aannyy llaatteerr vveerrssiioonn''''))
+unterliegt, so haben Sie die Wahl, entweder den Bestimmungen der genannten
+Version zu folgen oder denen jeder beliebigen späteren Version, die von der
+FFrreeee SSooffttwwaarree FFoouunnddaattiioonn veröffentlicht wurde. Wenn das Programm keine
+Versionsnummer angibt, können Sie eine beliebige Version wählen, die je von der
+FFrreeee SSooffttwwaarree FFoouunnddaattiioonn veröffentlicht wurde.
+§10. Wenn Sie den Wunsch haben, Teile des Programms in anderen freien
+Programmen zu verwenden, deren Bedingungen für die Verbreitung anders sind,
+schreiben Sie an den Autor, um ihn um die Erlaubnis zu bitten. Für Software,
+die unter dem Copyright der FFrreeee SSooffttwwaarree FFoouunnddaattiioonn steht, schreiben Sie an
+die FFrreeee SSooffttwwaarree FFoouunnddaattiioonn ; wir machen zu diesem Zweck gelegentlich
+Ausnahmen. Unsere Entscheidung wird von den beiden Zielen geleitet werden, zum
+einen den freien Status aller von unserer freien Software abgeleiteten
+Datenwerke zu erhalten und zum anderen das gemeinschaftliche Nutzen und
+Wiederverwenden von Software im allgemeinen zu fördern.
+********** KKeeiinnee GGeewwäähhrrlleeiissttuunngg **********
+§§1111.. DDaa ddaass PPrrooggrraammmm oohhnnee jjeegglliicchhee KKoosstteenn lliizzeennzziieerrtt wwiirrdd,, bbeesstteehhtt kkeeiinneerrlleeii
+GGeewwäähhrrlleeiissttuunngg ffüürr ddaass PPrrooggrraammmm,, ssoowweeiitt ddiieess ggeesseettzzlliicchh zzuulläässssiigg iisstt.. SSooffeerrnn
+nniicchhtt aannddeerrwweeiittiigg sscchhrriiffttlliicchh bbeessttäättiiggtt,, sstteelllleenn ddiiee CCooppyyrriigghhtt--IInnhhaabbeerr uunndd//ooddeerr
+DDrriittttee ddaass PPrrooggrraammmm ssoo zzuurr VVeerrffüügguunngg,, ,,,,wwiiee eess iisstt````,, oohhnnee iirrggeennddeeiinnee
+GGeewwäähhrrlleeiissttuunngg,, wweeddeerr aauussddrrüücckklliicchh nnoocchh iimmpplliizziitt,, eeiinnsscchhlliieeßßlliicchh -- aabbeerr nniicchhtt
+bbeeggrreennzztt aauuff -- MMaarrkkttrreeiiffee ooddeerr VVeerrwweennddbbaarrkkeeiitt ffüürr eeiinneenn bbeessttiimmmmtteenn ZZwweecckk.. DDaass
+vvoollllee RRiissiikkoo bbeezzüügglliicchh QQuuaalliittäätt uunndd LLeeiissttuunnggssffäähhiiggkkeeiitt ddeess PPrrooggrraammmmss lliieeggtt bbeeii
+IIhhnneenn.. SSoollllttee ssiicchh ddaass PPrrooggrraammmm aallss ffeehhlleerrhhaafftt hheerraauusssstteelllleenn,, lliieeggeenn ddiiee KKoosstteenn
+ffüürr nnoottwweennddiiggeenn SSeerrvviiccee,, RReeppaarraattuurr ooddeerr KKoorrrreekkttuurr bbeeii IIhhnneenn..
+§§1122.. IInn kkeeiinneemm FFaallll,, aauußßeerr wweennnn dduurrcchh ggeelltteennddeess RReecchhtt ggeeffoorrddeerrtt ooddeerr
+sscchhrriiffttlliicchh zzuuggeessiicchheerrtt,, iisstt iirrggeennddeeiinn CCooppyyrriigghhtt--IInnhhaabbeerr ooddeerr iirrggeennddeeiinn
+DDrriitttteerr,, ddeerr ddaass PPrrooggrraammmm wwiiee oobbeenn eerrllaauubbtt mmooddiiffiizziieerrtt ooddeerr vveerrbbrreeiitteett hhaatt,,
+IIhhnneenn ggeeggeennüübbeerr ffüürr iirrggeennddwweellcchhee SScchhääddeenn hhaaffttbbaarr,, eeiinnsscchhlliieeßßlliicchh jjeegglliicchheerr
+aallllggeemmeeiinneerr ooddeerr ssppeezziieelllleerr SScchhääddeenn,, SScchhääddeenn dduurrcchh SSeeiitteenneeffffeekkttee
+((NNeebbeennwwiirrkkuunnggeenn)) ooddeerr FFoollggeesscchhääddeenn,, ddiiee aauuss ddeerr BBeennuuttzzuunngg ddeess PPrrooggrraammmmss ooddeerr
+ddeerr UUnnbbeennuuttzzbbaarrkkeeiitt ddeess PPrrooggrraammmmss ffoollggeenn ((eeiinnsscchhlliieeßßlliicchh -- aabbeerr nniicchhtt
+bbeesscchhrräännkktt aauuff -- DDaatteennvveerrlluussttee,, ffeehhlleerrhhaaffttee VVeerraarrbbeeiittuunngg vvoonn DDaatteenn,, VVeerrlluussttee,,
+ddiiee vvoonn IIhhnneenn ooddeerr aannddeerreenn ggeettrraaggeenn wweerrddeenn mmüüsssseenn,, ooddeerr ddeemm UUnnvveerrmmööggeenn ddeess
+PPrrooggrraammmmss,, mmiitt iirrggeennddeeiinneemm aannddeerreenn PPrrooggrraammmm zzuussaammmmeennzzuuaarrbbeeiitteenn)),, sseellbbsstt wweennnn
+eeiinn CCooppyyrriigghhtt--IInnhhaabbeerr ooddeerr DDrriitttteerr üübbeerr ddiiee MMöögglliicchhkkeeiitt ssoollcchheerr SScchhääddeenn
+uunntteerrrriicchhtteett wwoorrddeenn wwaarr..
+********** EEnnddee ddeerr BBeeddiinngguunnggeenn **********
+AAnnhhaanngg:: WWiiee SSiiee ddiieessee BBeeddiinngguunnggeenn aauuff IIhhrree eeiiggeenneenn,,
+nneeuueenn PPrrooggrraammmmee aannwweennddeenn kköönnnneenn
+Wenn Sie ein neues Programm entwickeln und wollen, daß es vom größtmöglichen
+Nutzen für die Allgemeinheit ist, dann erreichen Sie das am besten, indem Sie
+es zu freier Software machen, die jeder unter diesen Bestimmungen
+weiterverbreiten und verändern kann.
+Um dies zu erreichen, fügen Sie die folgenden Vermerke zu Ihrem Programm hinzu.
+Am sichersten ist es, sie an den Anfang einer jeden Quelldatei zu stellen, um
+den Gewährleistungsausschluß möglichst deutlich darzustellen; zumindest aber
+sollte jede Datei eine Copyright-Zeile besitzen sowie einen kurzen Hinweis
+darauf, wo die vollständigen Vermerke zu finden sind.
+     [eine Zeile mit dem Programmnamen und einer kurzen Beschreibung]
+     Copyright (C) [Jahr]  [Name des Autors]
+     This program is free software; you can redistribute it and/or modify
+     it under the terms of the GNU General Public License as published by
+     the Free Software Foundation; either version 2 of the License, or (at
+     your option) any later version.
+     This program is distributed in the hope that it will be useful, but
+     WITHOUT ANY WARRANTY; without even the implied warranty of
+     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+     General Public License for more details.
+     You should have received a copy of the GNU General Public License
+     along with this program; if not, write to the Free Software
+     Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307,
+     USA.
+Auf Deutsch:
+     [eine Zeile mit dem Programmnamen und einer kurzen Beschreibung]
+     Copyright (C) [Jahr]  [Name des Autors]
+     Dieses Programm ist freie Software. Sie können es unter den
+     Bedingungen der GNU General Public License, wie von der Free Software
+     Foundation veröffentlicht, weitergeben und/oder modifizieren,
+     entweder gemäß Version 2 der Lizenz oder (nach Ihrer Option) jeder
+     späteren Version.
+     Die Veröffentlichung dieses Programms erfolgt in der Hoffnung, daß es
+     Ihnen von Nutzen sein wird, aber OHNE IRGENDEINE GARANTIE, sogar ohne
+     die implizite Garantie der MARKTREIFE oder der VERWENDBARKEIT FÜR
+     EINEN BESTIMMTEN ZWECK. Details finden Sie in der GNU General Public
+     License.
+     Sie sollten eine Kopie der GNU General Public License zusammen mit
+     diesem Programm erhalten haben. Falls nicht, schreiben Sie an die
+     Free Software Foundation, Inc., 59 Temple Place, Suite 330, Boston,
+     MA 02111-1307, USA.
+Fügen Sie auch einen kurzen Hinweis hinzu, wie Sie elektronisch und per Brief
+erreichbar sind.
+Wenn Ihr Programm interaktiv ist, sorgen Sie dafür, daß es nach dem Start einen
+kurzen Vermerk ausgibt:
+     version 69, Copyright (C) [Jahr]  [Name des Autors]
+     Gnomovision comes with ABSOLUTELY NO WARRANTY; for details type `show
+     w'. This is free software, and you are welcome to redistribute it
+     under certain conditions; type `show c' for details.
+Auf Deutsch:
+     Version 69, Copyright (C) [Jahr]  [Name des Autors] Für Gnomovision
+     besteht KEINERLEI GARANTIE; geben Sie `show w' für Details ein.
+     Gnonovision ist freie Software, die Sie unter bestimmten Bedingungen
+     weitergeben dürfen; geben Sie `show c' für Details ein.
+Die hypothetischen Kommandos `show w' und `show c' sollten die entsprechenden
+Teile der GNU-GPL anzeigen. Natürlich können die von Ihnen verwendeten
+Kommandos anders heißen als `show w' und `show c'; es könnten auch Mausklicks
+oder Menüpunkte sein - was immer am besten in Ihr Programm paßt.
+Soweit vorhanden, sollten Sie auch Ihren Arbeitgeber (wenn Sie als
+Programmierer arbeiten) oder Ihre Schule einen Copyright-Verzicht für das
+Programm unterschreiben lassen. Hier ein Beispiel. Die Namen müssen Sie
+natürlich ändern.
+     Yoyodyne, Inc., hereby disclaims all copyright interest in the
+     program `Gnomovision' (which makes passes at compilers) written by
+     James Hacker.
+     [Unterschrift von Ty Coon], 1 April 1989
+     Ty Coon, President of Vice
+Auf Deutsch:
+     Die Yoyodyne GmbH erhebt keinen urheberrechtlichen Anspruch auf das
+     von James Hacker geschriebene Programm ,Gnomovision` (einem
+     Schrittmacher für Compiler).
+     [Unterschrift von Ty Coon], 1. April 1989
+     Ty Coon, Vizepräsident
+Diese GGeenneerraall PPuubblliicc LLiicceennssee gestattet nicht die Einbindung des Programms in
+proprietäre Programme. Ist Ihr Programm eine Funktionsbibliothek, so kann es
+sinnvoller sein, das Binden proprietärer Programme mit dieser Bibliothek zu
+gestatten. Wenn Sie dies tun wollen, sollten Sie die GNU Library General Public
+License anstelle dieser Lizenz verwenden.

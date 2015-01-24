@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE gamefile SYSTEM "file:org/jzuul/engine/dtd/gamefile.dtd">
+
+<gamefile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="/zuul/org/jzuul/engine/dtd/gamefile.xsd" version="1.0">
+  <description>Welcome to Zuul! Zuul is a new exciting game. 
+   Enter 'help' when you need help.</description>
+  <map name="default" startroom="mainentrance">
+    <room class="org.jzuul.engine.rooms.Room" name="class">
+      <description>in a classroom</description>
+      <ways>
+        <way direction="west" room="mainentrance" />
+      </ways>
+    </room>
+    <room class="org.jzuul.engine.rooms.Room" name="studentsroom">
+      <description>in the student room for computer science students</description>
+      <image file="/org/jzuul/games/zuul/bild3.jpg" />
+      <contents>
+        <item name="mate" />
+        <item name="mate" />
+        <item name="mate" />
+      </contents>
+      <ways>
+        <way direction="east" room="beamer" />
+        <way direction="below" room="commzone" />
+      </ways>
+      <event name="playerenter">
+        <actions>
+          <player-say>This room is creepy!</player-say>
+        </actions>
+      </event>
+    </room>
+    <room class="org.jzuul.engine.rooms.Room" name="cafeteria">
+      <description>in the cafeteria</description>
+      <ways>
+        <way direction="east" room="mainentrance" />
+      </ways>
+    </room>
+    <room class="org.jzuul.engine.rooms.Room" name="mainentrance">
+      <description>in front of the main entrance of the university</description>
+      <image file="/org/jzuul/games/zuul/bild1.jpg" />
+      <contents>
+        <item name="apple" />
+        <character name="cat" dialog="1" />
+        <character name="hacker" dialog="1" />
+        <item name="knife" />
+        <item name="tree" />
+      </contents>
+      <ways>
+        <way direction="north" room="commzone" />
+        <way direction="east" room="class" />
+        <way direction="south" room="labor" />
+        <way direction="west" room="cafeteria" />
+      </ways>
+      <views>
+        <view direction="north">a hard way</view>
+        <view direction="east">a big door</view>
+        <view direction="south">a small dor</view>
+        <view direction="west">a display</view>
+      </views>
+      <event name="timer">
+        <actions>
+          <player-say>An apple falls of the tree</player-say>
+          <room-item>apple</room-item>
+        </actions>
+      </event>
+    </room>
+    <room class="org.jzuul.engine.rooms.BeamRoom" name="beamer">
+      <description>in a room full of strange stuff</description>
+      <ways>
+        <way direction="west" room="studentsroom" />
+      </ways>
+    </room>
+    <room class="org.jzuul.engine.rooms.Room" name="commzone">
+      <description>in the students communication zone</description>
+      <image file="/org/jzuul/games/zuul/bild2.jpg" />
+      <ways>
+        <way direction="south" room="mainentrance" />
+        <way direction="above" room="studentsroom" />
+      </ways>
+      <contents>
+        <character name="ghost" />
+        <character name="parrot" />
+      </contents>
+    </room>
+    <room class="org.jzuul.engine.rooms.Room" name="labor">
+      <description>in a computer room</description>
+      <ways>
+        <way direction="north" room="mainentrance" />
+        <way direction="east" room="buero" />
+      </ways>
+    </room>
+    <room class="org.jzuul.engine.rooms.Room" name="buero">
+      <description>in the adminstrative buro</description>
+      <ways>
+        <way direction="west" room="labor" />
+      </ways>
+    </room>
+    <transitionroom name="uebergang1" final="false" target="newmap">
+      <precondition item="knife" />
+      <ways>
+        <way direction="south" room="studentsroom" />
+      </ways>
+    </transitionroom>
+  </map>
+  <map name="newmap" startroom="besenkammer">
+    <room class="org.jzuul.engine.rooms.Room" name="besenkammer">
+      <description>in a maintainance room</description>
+      <ways>
+        <way direction="north" room="abstellkammer" />
+      </ways>
+    </room>
+    <room class="org.jzuul.engine.rooms.Room" name="abstellkammer">
+      <description>in a store room</description>
+      <ways>
+        <way direction="south" room="besenkammer" />
+      </ways>
+    </room>
+    <transitionroom name="uebergang2" final="true" target="default">
+      <precondition item="knife" />
+      <ways>
+        <way direction="east" room="besenkammer" />
+      </ways>
+    </transitionroom>
+  </map>
+  <player position="mainentrance" map="default" name="Player">
+    <target>
+      <description>Find a person to help you</description>
+      <condition type="talk" value="hacker" />
+    </target>
+  </player>
+  <history />
+  <dialogs>
+    <dialog-owner name="hacker">
+      <dialog>
+        <phase>
+          <object id="1" type="dialog_end_failure" nextphase="0">
+            <say>Hi, how are you?</say>
+            <reply>Couldn't be any worse</reply>
+          </object>
+          <object id="2" type="dialog_end_failure" nextphase="0">
+            <say>What are you doing?</say>
+            <reply>Mind your own business?!?</reply>
+          </object>
+          <object id="3" type="dialog_continue" nextphase="2">
+            <say>Can you tell me what to do?</say>
+            <reply>Maybe...</reply>
+          </object>
+          <object id="4" type="dialog_end_failure" nextphase="0">
+            <say>What about Linux?</say>
+            <reply>You're gonna make fun of me?</reply>
+          </object>
+          <object id="5" type="dialog_end_failure" nextphase="0">
+            <say>Do you wanna buy this nice leather jacket?</say>
+            <reply>Are you gonna make fun if me?</reply>
+          </object>
+        </phase>
+        <phase>
+          <object id="6" type="dialog_end_failure" nextphase="0">
+            <say>I got this Windows problem...</say>
+            <reply>Win... what? Don't know any about that</reply>
+          </object>
+          <reference id="2" />
+          <reference id="4" />
+          <object id="7" type="dialog_custom_result_1" nextphase="0">
+            <say>What do I have to do to make you help me?</say>
+            <reply>Get me some Mate!</reply>
+          </object>
+        </phase>
+      </dialog>
+      <dialog>
+        <precondition item="mate" />
+        <phase>
+          <object id="1" type="dialog_end_success" nextphase="0">
+            <say>Can you tell me what to do, now?</say>
+            <reply>Create some games!</reply>
+          </object>
+        </phase>
+      </dialog>
+    </dialog-owner>
+  </dialogs>
+  <gameobjects>
+    <characters>
+      <person name="hacker">
+        <description>a strange Geek</description>
+        <event name="dialog_custom_result_1">
+          <actions>
+            <target>
+              <description>Get the Hacker some Mate</description>
+              <condition type="give" value="mate" />
+            </target>
+          </actions>
+        </event>
+        <property name="useable" value="false" />
+        <property name="takeable" value="false" />
+        <property name="deleteonuse" value="false" />
+        <property name="size" value="5" />
+      </person>
+      <person name="cat">
+        <description>a black cat</description>
+        <event name="takeup">
+          <actions>
+            <npc-say>Miauu!</npc-say>
+          </actions>
+        </event>
+        <event name="drop">
+          <actions>
+            <npc-say>Mowww</npc-say>
+          </actions>
+        </event>
+        <event name="default">
+          <actions>
+            <action type="moveRandom" />
+          </actions>
+        </event>
+        <property name="useable" value="false" />
+        <property name="takeable" value="true" />
+        <property name="deleteonuse" value="false" />
+        <property name="size" value="1" />
+      </person>
+      <person name="parrot">
+        <description>a parrot</description>
+        <event name="playerleave">
+          <actions>
+            <npc-say>Bye, Lora</npc-say>
+          </actions>
+        </event>
+        <event name="playerenter">
+          <actions>
+            <npc-say>Hello, Lora</npc-say>
+          </actions>
+        </event>
+        <event name="timer">
+          <actions>
+            <npc-say>croak</npc-say>
+          </actions>
+        </event>
+        <property name="useable" value="false" />
+        <property name="takeable" value="false" />
+        <property name="deleteonuse" value="false" />
+        <property name="size" value="0" />
+      </person>
+      <person name="ghost">
+        <description>a good ghost</description>
+        <event name="playerenter">
+          <actions>
+            <action type="leaveRoom" />
+          </actions>
+        </event>
+        <property name="useable" value="false" />
+        <property name="takeable" value="false" />
+        <property name="deleteonuse" value="false" />
+        <property name="size" value="0" />
+      </person>
+    </characters>
+    <items>
+      <gameitem name="apple_skin">
+        <description>usual apple skins</description>
+        <property name="useable" value="false" />
+        <property name="takeable" value="true" />
+        <property name="deleteonuse" value="false" />
+        <property name="size" value="1" />
+      </gameitem>
+      <gameitem name="apple">
+        <description>a red apple</description>
+        <property name="useable" value="false" />
+        <property name="takeable" value="true" />
+        <property name="deleteonuse" value="false" />
+        <property name="size" value="2" />
+      </gameitem>
+      <gameitem name="peeled_apple">
+        <description>a peeled apple</description>
+        <event name="use">
+          <actions>
+            <player-say>Mmm, yammi</player-say>
+          </actions>
+        </event>
+        <property name="useable" value="true" />
+        <property name="takeable" value="false" />
+        <property name="deleteonuse" value="true" />
+        <property name="size" value="2" />
+      </gameitem>
+      <gameitem name="knife">
+        <description>a ktichen knife</description>
+        <event name="use">
+          <actions>
+            <player-say>Arg</player-say>
+          </actions>
+        </event>
+        <combinations>
+          <with-object name="apple">
+            <actions>
+              <player-say>You skinned the apple, the skin is falling to the floor</player-say>
+              <inventory-item>peeled_apple</inventory-item>
+              <room-item>apple_skin</room-item>
+              <delete-item>apple</delete-item>
+            </actions>
+          </with-object>
+          <with-object name="cat">
+            <actions>
+              <player-say>I don't want to hurt the cat</player-say>
+            </actions>
+          </with-object>
+          <with-object name="tree">
+            <actions>
+              <player-say>You carve a heart into the tree</player-say>
+              <alter-item property="description">A tree, lovely decorated with a heart</alter-item>
+            </actions>
+          </with-object>
+        </combinations>
+        <property name="useable" value="true" />
+        <property name="takeable" value="true" />
+        <property name="deleteonuse" value="false" />
+        <property name="size" value="2" />
+      </gameitem>
+      <gameitem name="tree">
+        <description>A nice appletree</description>
+        <property name="useable" value="false" />
+        <property name="takeable" value="false" />
+        <property name="deleteonuse" value="false" />
+        <property name="size" value="10" />
+      </gameitem>
+      <gameitem name="mate">
+        <description>Refreshing Mate</description>
+        <event name="use">
+          <actions>
+            <player-say>Very refreshing</player-say>
+          </actions>
+        </event>
+        <property name="useable" value="true" />
+        <property name="takeable" value="true" />
+        <property name="deleteonuse" value="true" />
+        <property name="size" value="2" />
+      </gameitem>
+    </items>
+  </gameobjects>
+</gamefile>
+

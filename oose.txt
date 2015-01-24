@@ -1,0 +1,178 @@
+Was ist Objektorientierung, welche Ziele werden verfolgt?
+	Die ganzheitliche Erstellung von Software mit Objektmodellen. (Bei jedem Schritt der Softwareentwicklung spielt der Objektgedanke eine Rolle. Nutzer, Programme und Gegenstände tauschen Nachrichten aus.)
+	Ziele: Abbildung der realen Welt, Wiederverwertung
+
+Was versteht man unter objektorientierter Modellierung?
+	ein gegenstand wird durch eine gegenstandsbezogene handlung begreiflich und der begriff wird in einer klasse beschrieben/modelliert. (idee: durch handlungen an einem gegenstand machen wir uns den gegenstand begreiflich)
+	
+Was ist Kapselung, wozu dient es?
+	kapselung = information hiding
+	Änderungen begrenzen, wenn entwicklungsentscheidungen revidiert werden müssen
+
+Mit welchen Sprachkonstrukten von Java kann man etwas zur Erhöhung der Kapselung tun?
+	vererbung,	wenig public (static) klassen und methoden nutzen
+
+Was ist der Unterschied zwischen Klasse und Exemplar?
+	klasse ist "bauplan" für ein objekt
+	exemplar ist die mit konkreten werten gefüllte klasse
+	
+Was ist Polymorphie, wozu dient sie?
+	Polymorphie bedeutet "Vielgestaltigkeit." In Java bedeutet es, dass eine einzelne Variable für verschiedene Objekte verwandter Klassen (zu verschiedenen Zeitpunkten) in einem Programm verwendet werden kann. Wenn die Variable mit der Punktnotation variable.methode() verwendet wird um eine Methode aufzurufen, hängt es vom Objekt ab, auf das die Variable gegenwärtig verweist, welche Methode tatsächlich ausgeführt wird. 
+	Durch Polymorphie können ähnliche Handlungen durch die gleichen Methoden umgesetzt werden, indem zur Laufzeit bestimmt wird, welche Implementation der Methode ausgewählt wird
+	
+Was ist Vererbung, wozu dient sie?
+	dabei erbt eine unterklasse die spezifikation ihrer oberklasse(n). modeliert die "ist ein" beziehung. unterklasse kann spezifikation überschreiben oder erweitern
+	vereinfacht wartung, macht software resistent gegen änderung / robust.
+	ökonomisches klassendesign (code nur einmal schreiben)
+
+Was ist Benutzung im Gegensatz zu Vererbung?
+	use-beziehung im gegensatz zu ist-ein-beziehung (auto ist ein fahrzeug, auto nutzt räder)
+
+Wie kann man Mehrfachvererbung durch Einfachvererbung ersetzen? Was gibt es insbesondere bei Java für eine Möglichkeit, um Mehrfachvererbung zu entschärfen?
+	ist-ein-beziehungen durch use-beziehungen ersetzen, interfaces unterstüzten mehrfachvererbung
+
+Was sind Kohäsion und Kopplung, wozu dien "responsibility driven design"?
+	Kopplung: gibt an, wie eng die Softwarebausteine einer Anwendung miteinander verknüpft sind. Ziel von OO ist möglichst loose Kopplung der Bausteine, damit werden Änderungen einfacher!
+	Kohäsion: gibt an, wie gut ein Softwarebaustein eine logische Aufgabe oder Einheit abbildet. In einem System mit hoher Kohäsion ist jeder Softwarebaustein verantworklicht für genau eine wohldefinierte Aufgabe.
+	resposibility driven design: 
+
+Was bedeutet das Offen-Geschlossen-Prinzip bemi objektorientierten Design?
+	Eine Anwendung sollte möglichst offen für Erweiterung sein und möglichst geschlossen fü Veränderungen
+
+Was ist Design by Contract?
+	client/supplier kunde/anbieter modell. vertragsmodell der zusicherungen:
+	das erbringen von leistungen wird vertraglich geregelt. dabei wird festgelegt unter welcher bedingung welche leistung erbracht wird. die vertragsbedingungen werden mit hilfe von zusicherungen festgelegt. vor- und nachbedingnungen bilden einen vertrag.
+	-> fördert korrekte und robuste klassen
+	
+Was bedeutet das Design-Prinzip der minimalen Verwunderung?
+	Die Methoden sollen genau das tun, was ihr name usw impliziert
+
+Wozu dient das Liskov-Prinzip beim Entwurf von Klassenhierarchien?
+	eine methode die eine referenz auf einen typen erwartet soll ihre aufgabe auch mit einem subtypen erfüllen können.
+		
+Was ist der Unterschied in Java zwischen dem Überladen und dem Überschreiben von Methoden? Wozu kann Überladen in Java gebraucht werden?
+	durch überladen können ähnliche Handlungen durch die gleichen Methoden umgesetzt werden, indem zur Laufzeit bestimmt wird, welche Implementation der Methode gewählt wird.
+	Überschreiben findet beim vererben Einsatz. Wenn die funktionalität einer vererbten funktion geändert wird.
+
+Was sind Szenarien und Anwendungsfälle bei der objektorientierten Modellierung?
+	Szenarien: beschreiben Arbeitskontexte des Anwendungsfleds, Arbeitsabläufe(IST und SOLL) und evtl. vorhanden Problemlösungen.
+	Szenarien sind beispielhaft und episodisch, sollen helfen Fragen zu stellen und Begriffe zu klären
+	Anwendungsfälle: Use Case
+	Name = substantiv + verb, Ziel, Vorbedingung, Nachbedingung erfolg, Nachbedinung fehlschlag, Akteure, Auszulösendes Ereignis...
+
+Was sind CRC-Karten, wozu können sie benutzt werden?
+	Class Responsibility Collaboration
+	z.B. Karteikarten auf der ClassName, die Zuständigkeit (zu lösende aufgabe) und die Collaborators (Klassen die Hilfsmittel beschreiben) notiert werden. Dient zur fachbezogenen Diskussion, erleichter austausch von Ideen, griffige Beschreibungstechnik, keine lange Einarbeitungszeit
+
+Was ist Konfigurationsverwaltung bei der Softwareentwicklung? Was ist ein Softwareelement innerhalb der Konfigurationsverwaltung?
+	konfigurationsverwaltung ist eine sammlung von techniken, die den entwurf von software koordinieren und verwalten. change-, versions-, build- und release management
+	softwareelement ist jedes maschinenlesbare dokument was während der entwikclung der software entsteht
+	
+Was heisst CVS? Welche Verfahren gibt es unter CVS, um Konflikte zwischen Entwicklern zu bereinigen oder zu vermeiden?
+	concurrent version system
+	problem "last save wins" -> optimistischer ansatz, paralleles ändern einer datei möglich, allerdings kollisionen, konservativer ansatz mit schreibsperre, sicher aber bremst entwicklung aus
+	
+Was sind Design Patterns, wozu dienen sie?
+	Ein Entwurfsmuster (englisch: design pattern) beschreibt eine in der Praxis erfolgreiche Lösung für ein mehr oder weniger häufig auftretendes Entwurfsproblem und stellt damit eine wiederverwendbare Vorlage zur Problemlösung dar. Entstanden ist der Ausdruck in der Architektur, von wo er für die Softwareentwicklung übernommen wurde.
+	erlauben es, Software-Probleme abstrakt zu lösen und in einer übertragbaren form zu dokumentieren.
+	
+Wie funktioniert das Entwurfsmuster "Schablonenmethode" (Template Method)?
+	Das in der Softwareentwicklung eingesetzte Entwurfsmuster Schablonenmenthode (auch: Template Method) wird für Algorithmen verwendet. Dabei wird in einer abstrakten Klasse ein Skelett eines Algorithmus in einer Operation definiert. Die konkrete Ausformung der einzelnen Schritte des Algorithmus wird an die Unterklassen delegiert. Dies ermöglicht, einzelne Schritte eines Algorithmus zu modifizieren oder zu überschreiben, ohne dass die grundlegende Struktur des Algorithmus verändert wird.
+
+"Fabrikmethode" (factory method)
+	Die Abstrakte Fabrik (engl. Abstract Factory) ist ein in der Programmierung benutztes Entwurfsmuster (design pattern). Es handelt sich um ein Muster zur Erzeugung von Objekte, ein so genanntes Erzeugungsmuster. Es wird verwendet, um verwandte oder voneinander abhängige Objekte zu erzeugen, ohne dabei die konkreten Klassen zu benennen. Die Implementation der einzubindenden Objekte kann somit unabhängig erfolgen, wenn die Schnittstelle bekannt ist. Die Zusammenführung muss erst beim Deployment erfolgen. Ein typischer Anwendungsfall ist zum Beispiel die Einbindung von Gerätetreibern zum Zugriff auf externe Systeme wie Datenbanken.
+	
+schablonenmethode (template method)
+	Das in der Softwareentwicklung eingesetzte Entwurfsmuster Schablonenmenthode (auch: Template Method) wird für Algorithmen verwendet. Dabei wird in einer abstrakten Klasse ein Skelett eines Algorithmus in einer Operation definiert. Die konkrete Ausformung der einzelnen Schritte des Algorithmus wird an die Unterklassen delegiert. Dies ermöglicht, einzelne Schritte eines Algorithmus zu modifizieren oder zu überschreiben, ohne dass die grundlegende Struktur des Algorithmus verändert wird.
+
+Welche Absicht wird mit dem Desginprinzip zur Umkehrung der Abhängigkeiten (dependency inversion principle) verfolgt?
+	Nutzer einer Dienstleistung sollen möglichst von Abstraktionen (abstract classes oder interfaces), nicht aber von der Implementation abhängig sein.
+	Ziel: unabhängigkeit von änderungen, einfacher austausch
+
+Welchen Zweck verfolgt das Entwurfsmuster "Kompositum" ("Composite")?
+	Das Kompositionsmuster wird verwendet, wenn zusammengesetzte Objekte genauso wie die Teile eingesetzt werden, aus denen sie zusammensetzt sind. Es ist damit möglich, rekursive, baumförmige struktuturen flexibel zusammenzusetzen.
+	Das in der Softwareentwicklung eingesetzte Entwurfsmuster Kompositum (engl. Composite) wird angewendet um Teil-Ganzes-Hierarchien zu repräsentieren, indem Objekte zu Baumstrukturen zusammengefügt werden. Die Grundidee des Kompositionsmusters (Composite-Pattern) ist in einer abstrakten Klasse sowohl primitive Objekte also auch ihre Behälter zu repräsentieren. Somit können sowohl einzelne Objekte, also auch ihre Kompositionen einheitlich behandelt werden. Ein typischer Anwendungsfall sind graphische Zeicheneditoren, bei denen z.B. Linien und Text zu komplexeren Komponenten zusammengefügt werden.
+
+Welchen Zweck verfolgt das Entwurfsmuster "Strategie" ("Strategy)?
+	Das Entwurfsmuster Strategie beschreibt eine zur Laufzeit austauschbare Implementierung. Genauer handelt es sich um Objekte, die lediglich dazu dienen, einen Algorithmus auszuführen. Die Art und Weise, wie dieser Algorithmus ausgeführt wird, bleibt dem Strategie-Objekt überlassen. Stragetie-Objekte werden ähnlich wie bei einer Klassenbibliothek vom Hauptprogramm aufgerufen. Im Gegensatz dazu handelt es sich jedoch nicht um externe Programmteile, die als ein Toolkit genutzt werden können, sondern um integrale Bestandteile des eigentlichen Programms, die deshalb als eigene Objekte definiert wurden, damit sie durch andere Algorithmen ausgetauscht werden können. Meistens wird eine Strategie durch Klassen umgesetzt, die eine bestimmte Schnittstelle implementieren. In Sprachen wie Smalltalk, in denen auch der Code selbst in Objekten abgelegt werden kann, kann eine Strategie aber auch durch solche Code-Objekte realisiert werden. Als Beispiel kann ein Steuerprogramm dienen, das die Berechnung von Steuersätzen möglichst in Strategie-Objekte auslagern sollte, um einfach länderabhängig konigurierbar zu sein.
+
+observer
+	Bei einem Beobachter handelt es sich um ein Verhaltens-Entwurfsmuster. Ändert sich ein Objekt, informiert es jeden Beobachter über die Änderung.
+    	* Messergebnisse werden gleichzeit in einem Balkendiagramm, einem Liniendiagramm und einer Tabelle dargestellt. Messwerte ändern sich permanent.
+	Vorteile
+	    * hängt ein Objekt von einem anderen ab, erhält es die Änderungen automatisch
+	Nachteile
+	    * kleine Änderungen am Objekt führen bei großer Beobachteranzahl zu hohen Änderungskosten (Das Subjekt informiert jeden Beobachter, auch wenn dieser die Änderungsinformation nicht benötigt)
+	    * Ruft Beobachter Änderungsmethoden des Subjektes auf, kommt es zu Endlosschleifen
+	    * keine Information darüber, was sich geändert hat
+	
+dekorierer
+	Das Decorator Pattern ist ein Entwurfsmuster, welches eine Klasse kapselt, so daß diese durch weitere oder abgeänderte Funktionen "dekoriert" wird. Dazu gibt es zwei Möglichkeiten der Umsetzung:
+	   1. Der Dekorierer wird als eine Strategie eingebunden und explizit aufgerufen. Ein Beispiel ist eine Klasse, die einen Rahmen um eine Komponente herum zeichnet.
+	   2. Die Instanz eines Dekorierers wird vor die zu dekorierende Klasse geschaltet (englische Bezeichnung: Wrapper). Der Dekorierer sollte dazu die gleiche Schnittstelle wie die zu dekorierende Klasse implementieren. Aufrufe an den Dekorierer werden dann verändert oder unverändert weitergeleitet (Delegation), oder sie werden komplett in Eigenregie verarbeitet. Der Dekorierer kann sich dabei völlig "unsichtbar" verhalten, indem der Aufrufende gar nicht mitbekommt, daß ein Dekorierer vorgeschaltet ist, oder er kann die Schnittstelle des Dekorierenden noch erweitern.
+	
+Was versteht man unter einer MVC-Architektur?
+	Das Model View Controller Konzept (MVC) trennt eine Anwendung in drei Schichten auf.
+	Model
+		Das Datenmodell enthält die dauerhaften (persistenten) Daten der Anwendung. Das Model hat also Zugriff auf diverse Backend-Speicher wie zum Beispiel Datenbanken. Das Model kennt weder die View noch den Controller, es weiß also gar nicht, wie, ob und wie oft es dargestellt und verändert wird. Änderungen im Model werden allerdings über einen Update-Mechanismus bekannt gegeben, indem ein Event ausgelöst wird. Dazu muß sich zumindest die View als abhängiges Objekt am Model registrieren, um über Datenänderungen informiert zu werden.
+	View
+		Die Darstellungsschicht präsentiert die Daten - in der Regel jedoch nicht notwendigerweise zwecks Anzeige. Die Programmlogik sollte aus der View entfernt werden. Die View kennt das Model und ist dort registriert, um sich selbsttätig aktualisieren zu können.
+	Controller
+		Die Steuerungsschicht realisiert die eigentliche Geschäftsintelligenz und bildet mit Hilfe der anderen Schichten die Prozesse ab. Sie steuert den Ablauf, verarbeitet Daten, entscheidet, welche View aufgerufen wird, etc.
+		Der übliche Fall wird sein, daß eine View und ein Controller zusammenspielen, sich also auch gegenseitig kennen, und sich auf ein Model beziehen. Ein Model kann aber von mehreren View-Controller-Paaren gesteuert werden. Beispielsweise kann ein Zahlenwert sowohl über ein Eingabefeld als auch über einen Schieberegler steuerbar sein. Verändert einer der dazugehörigen Controller den Wert, so sendet das Model ein Event, der dazu führt, daß sich beide grafischen Controls parallel aktualisieren.
+		Das MVC-Konzept wurde zunächst für Benutzeroberflächen in Smalltalk beschrieben, gilt mittlerweile aber als defacto Standard für den Grobentwurf aller komplexen Softwaresysteme (mit diversen Verfeinerungen und oftmals mehreren jeweils nach MVC pattern aufgeteilten Modulen).
+		Umstritten ist, ob es sich hierbei um ein Entwurfsmuster handelt. Nach strenger Auslegung ist das nicht der Fall, da es sich nicht um ein allgemeines, beliebig verwendbares Muster handelt, sondern um einen ganz konkreten Anwendungsfall, nämlich der Grafischen Oberfläche.
+
+Nennen sie Entwurfsmuster die für MVC eingesetzt werden können?
+	beobachter
+	strategie
+	fabrikmethode
+	schablonenmethode
+
+Was ist Java Swing?
+	gui toolkit
+	
+Wie wird das MVC bei Java Swing umgesetzt?
+	Modell:		Bereitstellung von Objektzuständen
+	View:		Visualisierung von Objektzuständen
+	Controller:	Behandlung von Ereignissen (
+	
+Wie wird bei Java Swing das Observer-Pattern umgesetzt?
+	events
+
+Was unterscheidet die Computersprachen Python und Java? Welche Vorteile und Nachteile ergeben sich jeweils daraus?
+	scriptsprache - compilierte bytecode sprache
+	interpretierend
+    dynamische automatische Typenkonversion
+	dynamische Klassenzugehörigkeit oder prototypenbasierte Vererbung
+    implizit deklarierte Variablen
+    dynamische Funktionsnamen (Funktionsnamen müssen nicht vorab einem Compiler bekannt sein)
+    späte syntaktische Fehlererkennung (erst wenn ein konkreter Quelltext interpretiert wird, werden dort Fehler erkannt)
+	
+Wie wird in Python ein Codeblock syntaktisch definiert?
+	einrückung
+
+Wie unterscheiden sich Werte und Objekte in der Programierung?
+	werte: abstrakte grössen, abstand von gegenständlichen eigenschaften, zeitlos, ortlos, unveränderlich, einzigartig
+	objekte: einheit von form und inhalt, konkret, einheit von zeit und raum, veränderbar, zustandsbehaftet
+
+Was bedeutet das Alias-Problem in imperativen objektorientierten Sprachen?
+	problem bei referenzen... a und b referenzieren beide c, b ändert c, a bekommt davon nichts mit.
+	primitive datentypen werden nur als werte übergeben, deswegen hier keine probleme
+
+Mit welchen Mitteln man das Alias-Problem lösen bzw. reduzieren?
+	weitergegebene objekte vor veränderungen schützen
+	objekte benachrichtigen die referenzierenden über änderungen...
+	kaskadenaufrufe vermeiden m1().m2().m3()
+
+Was versteht man unter dem Law of Demeter, welche Absicht wird damit verfolgt?
+	"only talk to friends, don't talk to strangers"
+	jede programmiereinheit (z.b. eine methode) soll nur eine begrenzte anzahl von anderen einheiten nutzen (möglichst jene die eng mit ihr verknüft sind).
+	eine heuristik (kein gesetz) um schlecht wartbaren code zu erkennen	
+
+Funktionenparamter wie in C gibt es in Java nicht - wie kann man in Java Funktionalität als Parameter übergeben?
+	Command-Pattern???
+	zur übergabe von codeblöcken können in java objekte, die eine vereinbarte schnittstelle implementieren, eingesetzt werden.	
+
+Nennen sie einen Einsatzzweck, um Funktionalität als Parameter zu übergeben?
+	ad-hoc implementierung von abstract classes/interfaces

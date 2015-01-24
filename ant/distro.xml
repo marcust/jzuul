@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="zuul" default="distro-all" basedir=".">
+ <property name="dist" value="dist"/>
+ <property name="prefix" value="jzuul"/>
+ <target name="distro-all" depends="bin-zips,source-zip"/>
+ <target name="bin-zips" depends="bin-zip-macosx,bin-zip-win32,bin-zip-linux,bin-zip-linux-motif"/>
+ <zipfileset id="independend" dir="./org" prefix="${prefix}/org">
+  <exclude name="build/"/>
+  <exclude name="lib/"/>
+  <include name="**/*.class"/>
+  <include name="**/*.dtd"/>
+  <include name="**/*.xml"/>
+  <include name="**/*.properties"/>	
+ </zipfileset>
+ <zipfileset id="artwork" dir="./etc/artwork" prefix="${prefix}/etc/artwork">
+  <include name="**/*.jpg"/>
+  <include name="**/*.png"/>
+ </zipfileset>
+ <zipfileset id="icon-win32" dir="." includes="etc/artwork/favicon.ico" fullpath="${prefix}/jzuul-icon.ico"/>
+ <zipfileset id="icon-other" dir="." includes="etc/artwork/jz.png" fullpath="${prefix}/jzuul-icon.png"/>
+ <fileset id="libs" dir="./lib">
+  <include name="xerces.jar"/>
+  <include name="jdom.jar"/>
+ </fileset>
+ <target name="bin-zip-macosx">
+  <zip destfile="${dist}/jzuul-bin-macosx.zip">
+   <zipfileset refid="independend"/>
+   <zipfileset refid="artwork"/>
+   <zipfileset refid="icon-other"/>
+   <zipfileset refid="libs" prefix="${prefix}/lib"/>
+   <zipfileset dir="./" includes="rungamefile,gameditor,LICENSE,LICENSE.DE,README" prefix="${prefix}/"/>
+   <zipfileset dir="./lib/swt_macosx_carbon" prefix="${prefix}/lib/swt_macosx_carbon"/>
+  </zip>
+ </target>
+ <target name="bin-zip-win32">
+  <zip destfile="${dist}/jzuul-bin-win32.zip">
+   <zipfileset refid="independend"/>
+   <zipfileset refid="artwork"/>
+   <zipfileset refid="icon-win32"/>
+   <zipfileset refid="libs" prefix="${prefix}/lib"/>
+   <zipfileset dir="./" includes="rungamefile.bat,gameditor.bat,LICENSE,LICENSE.DE,README" prefix="${prefix}/"/>
+   <zipfileset dir="./lib/swt_win32" prefix="${prefix}/lib/swt_win32"/>
+  </zip>
+ </target>
+ <target name="bin-zip-linux">
+  <zip destfile="${dist}/jzuul-bin-linux.zip">
+   <zipfileset refid="independend"/>
+   <zipfileset refid="artwork"/>
+   <zipfileset refid="icon-other"/>
+   <zipfileset refid="libs" prefix="${prefix}/lib"/>
+   <zipfileset dir="./" includes="rungamefile,gameditor,LICENSE,LICENSE.DE,README" prefix="${prefix}/"/>
+   <zipfileset dir="./lib/swt_linux" prefix="${prefix}/lib/swt_linux"/>
+  </zip>
+ </target>
+ <target name="bin-zip-linux-motif">
+  <zip destfile="${dist}/jzuul-bin-linux-motif.zip">
+   <zipfileset refid="independend"/>
+   <zipfileset refid="artwork"/>
+   <zipfileset refid="icon-other"/>
+   <zipfileset refid="libs" prefix="${prefix}/lib"/>
+   <zipfileset dir="./" includes="rungamefile,gameditor,LICENSE,LICENSE.DE,README" prefix="${prefix}/"/>
+   <zipfileset dir="./lib/swt_linux_motif" prefix="${prefix}/lib/swt_linux_motif"/>
+  </zip>
+ </target>
+ <target name="source-zip">
+  <zip destfile="${dist}/jzuul-source.zip">
+   <zipfileset dir="./" prefix="${prefix}">
+    <exclude name="*CVS*/*"/>
+    <exclude name="*~"/>
+    <exclude name="**/*.class"/>
+    <exclude name="**/*.zip"/>
+    <exclude name="**/*.tar"/>
+    <exclude name="**/*.sxi"/>
+    <exclude name="**/*.ucd"/>
+    <exclude name="**/.*"/>
+    <exclude name=".uml/*"/>
+    <exclude name="/etc/website/*"/>
+    <exclude name="**/resources/*"/>
+   </zipfileset>
+  </zip>
+ </target>
+</project>

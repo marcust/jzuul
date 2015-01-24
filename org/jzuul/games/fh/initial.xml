@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE gamefile SYSTEM "file:org/jzuul/engine/dtd/gamefile.dtd">
+
+<gamefile version="1.0">
+  <description />
+  <map name="default" startroom="eingang">
+    <room name="eingang" class="org.jzuul.engine.rooms.Room">
+      <description>vor dem Eingang der FH</description>
+      <image file="/org/jzuul/games/fh/eingang.jpg" />
+      <ways>
+        <way direction="north" room="foyer" />
+      </ways>
+      <views />
+    </room>
+    <room name="foyer" class="org.jzuul.engine.rooms.Room">
+      <description>in der Eingangshalle</description>
+      <image file="/org/jzuul/games/fh/foyer.jpg" />
+      <ways>
+        <way direction="north" room="sekreteriat" />
+        <way direction="east" room="commzone" />
+        <way direction="west" room="mensa" />
+      </ways>
+      <views />
+    </room>
+    <room name="mensa" class="org.jzuul.engine.rooms.Room">
+      <description>in der Mensa</description>
+      <image file="/org/jzuul/games/fh/mensa.jpg" />
+      <ways />
+      <views />
+    </room>
+    <room name="sekreteriat" class="org.jzuul.engine.rooms.Room">
+      <description>vor dem Sekreteriat</description>
+      <image file="/org/jzuul/games/fh/sekreteriat.jpg" />
+      <ways />
+      <views />
+    </room>
+    <room name="commzone" class="org.jzuul.engine.rooms.Room">
+      <description>in der Kommunikationszone</description>
+      <image file="/org/jzuul/games/fh/comzone.jpg" />
+      <ways>
+        <way direction="north" room="flur" />
+        <way direction="east" room="ausgang" />
+        <way direction="above" room="fachschaft" />
+      </ways>
+      <views />
+    </room>
+    <room name="fachschaft" class="org.jzuul.engine.rooms.Room">
+      <description>in der Fachschaft Informatik</description>
+      <image file="/org/jzuul/games/fh/fachschaft.jpg" />
+      <ways />
+      <views />
+    </room>
+    <room name="ausgang" class="org.jzuul.engine.rooms.Room">
+      <description>vor  dem Ausgang</description>
+      <image file="/org/jzuul/games/fh/garten.jpg" />
+      <ways />
+      <views />
+    </room>
+    <room name="flur" class="org.jzuul.engine.rooms.Room">
+      <description>im Flur</description>
+      <image file="/org/jzuul/games/fh/flur.jpg" />
+      <ways>
+        <way direction="west" room="labor" />
+      </ways>
+      <views />
+    </room>
+    <room name="labor" class="org.jzuul.engine.rooms.Room">
+      <description>im Böhmer Labor</description>
+      <image file="/org/jzuul/games/fh/labor.jpg" />
+      <ways />
+      <views />
+    </room>
+  </map>
+  <player name="Player" />
+  <dialogs />
+  <gameobjects>
+    <characters />
+    <items>
+      <gameitem name="gral">
+        <description>Der heilige Gral</description>
+        <property name="useable" value="false" />
+        <property name="takeable" value="true" />
+        <property name="deleteonuse" value="false" />
+        <property name="size" value="2" />
+      </gameitem>
+    </items>
+  </gameobjects>
+</gamefile>
+

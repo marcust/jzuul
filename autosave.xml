@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE gamefile SYSTEM "file:org/jzuul/engine/dtd/gamefile.dtd">
+
+<gamefile version="1.0 RC 1">
+  <map name="default" startroom="eingang">
+    <room class="org.jzuul.engine.rooms.Room" name="flur">
+      <description>im Flur</description>
+      <contents />
+      <ways>
+        <way direction="south" room="commzone" />
+        <way direction="west" room="labor" />
+      </ways>
+    </room>
+    <room class="org.jzuul.engine.rooms.Room" name="foyer">
+      <description>in der Eingangshalle</description>
+      <contents />
+      <ways>
+        <way direction="north" room="sekreteriat" />
+        <way direction="east" room="commzone" />
+        <way direction="south" room="eingang" />
+        <way direction="west" room="mensa" />
+      </ways>
+    </room>
+    <room class="org.jzuul.engine.rooms.Room" name="fachschaft">
+      <description>in der Fachschaft Informatik</description>
+      <contents />
+      <ways>
+        <way direction="below" room="commzone" />
+      </ways>
+    </room>
+    <room class="org.jzuul.engine.rooms.Room" name="eingang">
+      <description>vor dem Eingang der FH</description>
+      <contents />
+      <ways>
+        <way direction="north" room="foyer" />
+      </ways>
+    </room>
+    <room class="org.jzuul.engine.rooms.Room" name="commzone">
+      <description>in der Kommunikationszone</description>
+      <contents />
+      <ways>
+        <way direction="north" room="flur" />
+        <way direction="east" room="ausgang" />
+        <way direction="west" room="foyer" />
+        <way direction="above" room="fachschaft" />
+      </ways>
+    </room>
+    <room class="org.jzuul.engine.rooms.Room" name="mensa">
+      <description>in der Mensa</description>
+      <contents />
+      <ways>
+        <way direction="east" room="foyer" />
+      </ways>
+    </room>
+    <room class="org.jzuul.engine.rooms.Room" name="ausgang">
+      <description>vor  dem Ausgang</description>
+      <contents />
+      <ways>
+        <way direction="west" room="commzone" />
+      </ways>
+    </room>
+    <room class="org.jzuul.engine.rooms.Room" name="sekreteriat">
+      <description>vor dem Sekreteriat</description>
+      <contents />
+      <ways>
+        <way direction="south" room="foyer" />
+      </ways>
+    </room>
+    <room class="org.jzuul.engine.rooms.Room" name="labor">
+      <description>im Böhmer Labor</description>
+      <contents />
+      <ways>
+        <way direction="east" room="flur" />
+      </ways>
+    </room>
+  </map>
+  <player position="eingang" map="default" name="Player">
+    <contents>
+      <item name="mate" />
+    </contents>
+  </player>
+  <history />
+</gamefile>
+

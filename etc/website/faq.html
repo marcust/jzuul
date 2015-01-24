@@ -1,0 +1,111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta content="text/html; charset=ISO-8859-1"
+ http-equiv="content-type">
+  <title>JZuul FAQ</title>
+</head>
+<body>
+<h1>JZuul FAQ ($Revision: 1.4 $)</h1>
+Copyright &copy; 2004 <a href="http://www.jzuul.org">JZuul.org</a> All
+Rights Reserved. <br>
+This documentation may be distributed and/or modified under the terms
+of the <a href="http://www.fsf.org/licenses/fdl.html">FDL.</a><br>
+<br>
+<ol>
+  <li><a href="#1._What_is_JZuul">What is JZuul</a></li>
+  <li><a href="#2._Why">Why?</a></li>
+  <li><a href="#3._Why_Java">Why Java</a></li>
+  <li><a href="#4._Is_JZuul_an_acronym">Is JZuul an acronym</a></li>
+  <li><a href="#5._What_does_Zuul_mean">What does Zuul mean?</a></li>
+  <li>How do I translate the Engine/the GDK/a Game.<br>
+  </li>
+</ol>
+<br>
+<h3><a name="1._What_is_JZuul"></a><span
+ style="text-decoration: underline;">1. What is JZuul</span></h3>
+As the main page states, JZuul is a Textadventure Engine. A
+Textadventure is a game based on text commands to interact with a world
+which is described as text. To get an impression, you can try the <a
+ href="jzuul-demo.html">Demo</a> or the <a href="jzuul.html">Game</a>
+live on this page. Wikipedia has a <a
+ href="http://en.wikipedia.org/wiki/Interactive_fiction">definition</a>
+of Textadventures or so called Interactive Fiction.<br>
+Some additional information about Adventure Games:<br>
+<ul>
+  <li><a href="http://www.rickadams.org/adventure/">http://www.rickadams.org/adventure/</a></li>
+  <li><a
+ href="http://jerz.setonhill.edu/if/gallery/adventure/index.html">http://jerz.setonhill.edu/if/gallery/adventure/index.html</a></li>
+  <li><a href="http://www.jimtaylor.clara.co.uk/ugvm/ugvm03.pdf">http://www.jimtaylor.clara.co.uk/ugvm/ugvm03.pdf
+    </a><br>
+  </li>
+</ul>
+<br>
+<h3 style="text-decoration: underline;"><a name="2._Why"></a>2.&nbsp;
+Why?</h3>
+JZuul started as a example in an Univerity class about Object Oriented
+software development. As it is fun creating your own world, it got
+quite fast out of controle. Fortunately our professor got a feeling for
+what we were doing and allowed us to work on this project as a class
+target. Therefore JZuul is a mixture between must do and spare time
+work.<br>
+<br>
+<h3 style="text-decoration: underline;"><a name="3._Why_Java"></a>3.
+Why Java</h3>
+As Java is at the moment the state of the art language at&nbsp; least
+for German universities, Java was the language of choice for the class.
+As it is still university related and got a quite big codebase by now,
+we will keep it that way, trying to make JZuul as compatible as
+possible with free VMs.<br>
+<br>
+<h3 style="text-decoration: underline;"><a name="4._Is_JZuul_an_acronym"></a>4.
+Is JZuul an acronym</h3>
+No. Just like JDBC or JDOM are not officially acronyms, neither is
+JZuul. This ensures we comply with Sun's trademark policies as
+explained at <a href="http://www.sun.com/policies/trademarks">http://www.sun.com/policies/trademarks</a>.<br>
+<br>
+<h3 style="text-decoration: underline;"><a name="5._What_does_Zuul_mean"></a>5.
+What does Zuul mean?</h3>
+We don't know. The example JZuul is based on was named Zuul by Michael
+K&ouml;lling and David J. Barnes. As the "mother of all textadventures"
+is
+called <a href="http://en.wikipedia.org/wiki/Zork">Zork</a>, the name
+Zuul seems to be somehow related to that.<br>
+Our Professor collected additional information about the name:<br>
+<ul>
+  <li>In the movie "Ghostbusters" (1984) Zuul is the name of an ancient
+God, see <a href="http://www.imdb.com/title/tt0087332/quotes">http://www.imdb.com/title/tt0087332/quotes</a></li>
+  <li>The "Temple of Zuul" (it is the building used in the movie) is in
+New York, Central Park West 550, see <a
+ href="http://members.tripod.com/%7EAdam_P_B/ghostbusters/shandor1.jpg">http://members.tripod.com/~Adam_P_B/ghostbusters/shandor1.jpg</a></li>
+  <li>Mr. K&ouml;lling describes the word in his Book "Objects First
+with Java - A Practical Introduction using BlueJ", see <a
+ href="http://www.bluej.org/objects-first/chapters/objects-first-ch7.pdf">http://www.bluej.org/objects-first/chapters/objects-first-ch7.pdf</a></li>
+</ul>
+<br>
+<h3>6. How do I translate the Engine/the GDK/a Game</h3>
+JZuul has three language files, two for the engine and one for the GDK.
+The Engine files are called engine.properties and commands.properties.
+The commands files specifies the I18N information for the commands, the
+engine file for the engine. The command names (like go, take) can not
+be changed at the moment. All other messages that are hardcoded in the
+engine can be changed by copying the .properties file and renaming it
+to engine_XX.properties and commands_XX.properties where XX is the two
+digit acronym for your language. The same applies to the GDK, the file
+is called gdk.properties. You don't even need to touch the sources, the
+new files will be loaded automatically. <br>
+<br>
+To translate a game you can do mostly the same. The Engine first tries
+to find a file that is called <span style="font-style: italic;">like </span>the
+file you told it to load but ending on _XX with the name of your
+current language. If this file is not found the default file is used.
+You can translate a game by copying the gamefile to the new name and
+changing the strings with the game editor.<br>
+<br>
+<br>
+<br>
+<small><small>
+Last Updated: $Date: 2004/07/25 21:51:33 $ by
+$Author: marcus $</small></small><br>
+</body>
+</html>

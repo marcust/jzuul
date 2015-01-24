@@ -1,0 +1,3 @@
+to view the swt gui, you need to start the java vm with following parameters:
+
+-Djava.library.path=./lib/swt_linux

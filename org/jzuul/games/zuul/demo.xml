@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/org/jzuul/engine/dtd/gamefile.xsl" ?>
+<!DOCTYPE gamefile SYSTEM "file:org/jzuul/engine/dtd/gamefile.dtd">
+<gamefile version="1.0">
+<history>
+	<command>take Cat</command>
+	<command>help</command>
+	<command>help look</command>
+	<command>look north</command>
+	<command>look east</command>
+	<command>look south</command>	
+	<command>look west</command>	
+	<command>look down</command>	
+	<command>look up</command>	
+	<command>help inspect</command>
+	<command>inspect Cat</command>
+	<command>look Tree</command>
+	<command>help take</command>
+	<command>take Knife</command>
+	<command>help inspect</command>
+	<command>inspect Apple</command>
+	<command>help inv</command>
+	<command>inv</command>
+	<command>help use</command>
+	<command>use Knife with Apple</command>
+	<command>look</command>
+	<command>take Apfelschalen</command>
+	<command>use Knife with Cat</command>
+	<command>use Knife</command>
+	<command>use Knife with Tree</command>
+	<command>inspect Tree</command>
+	<command>inv</command>
+	<command>use Geschaelterapfel</command>
+	<command>inv</command>
+	<command>use Apfelschalen</command>
+	<command>inspect Hacker</command>
+	<command>talk to Hacker</command>
+	<command>1</command>
+	<command>talk to Hacker</command>
+	<command>3</command>
+	<command>2</command>
+	<command>help go</command>
+	<command>go north</command>
+	<command>go back</command>
+	<command>go back</command>
+	<command>go up</command>
+	<command>take Mate</command>
+	<command>inv</command>
+	<command>go down</command>
+	<command>inspect Mate</command>
+	<command>inspect Apfelschalen</command>
+	<command>inspect cat</command>
+	<command>inspect knife</command>
+	<command>go south</command>
+	<command>give Mate to Hacker</command>
+	<command>talk to Hacker</command>
+	<command>1</command>
+	<command>do nothing</command>
+	<command>drink</command>
+	<command>eat</command>	
+	<command>help drop</command>
+	<command>drop Apfelschalen</command>
+	<command>drop Cat</command>
+	<command>drop Knife</command>
+	<command>hallo</command>
+	<command>sleep</command>
+</history>
+</gamefile>

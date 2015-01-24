@@ -1,0 +1,122 @@
+	<!ELEMENT gamefile (description?,map*,player?,history?,dialogs*,gameobjects?)>
+		<!ATTLIST gamefile version CDATA "1.0">
+	<!--<!ATTLIST gamefile xmlns:xi CDATA "http://www.w3.org/2003/XInclude"> -->	
+
+	<!ELEMENT map (room+|transitionroom)*>
+		<!ATTLIST map name CDATA #REQUIRED>
+		<!ATTLIST map startroom CDATA #REQUIRED>
+
+	<!ELEMENT room (description,image?,contents?, ways?,views?,event*)>
+		<!ATTLIST room class CDATA #REQUIRED>
+		<!ATTLIST room name CDATA #REQUIRED>
+		
+	<!ELEMENT image EMPTY>
+		<!ATTLIST image file CDATA #REQUIRED>
+
+	<!ELEMENT transitionroom (precondition*,ways*)>
+		<!ATTLIST transitionroom name CDATA #REQUIRED>
+		<!ATTLIST transitionroom final (true|false) "false">
+		<!ATTLIST transitionroom target CDATA #REQUIRED>
+		
+	<!ELEMENT precondition EMPTY>
+		<!ATTLIST precondition item CDATA #REQUIRED>
+
+	<!ELEMENT description (#PCDATA)>
+	
+	<!ELEMENT contents (item|character)*>
+
+	<!ELEMENT item EMPTY> 
+		<!ATTLIST item name CDATA #REQUIRED>
+
+	<!ELEMENT character EMPTY>
+		<!ATTLIST character name CDATA #REQUIRED>
+		<!ATTLIST character dialog CDATA "1">
+
+	<!ELEMENT ways (way+)>
+
+	<!ELEMENT way EMPTY>
+		<!ATTLIST way direction (north|east|south|west|above|below) #REQUIRED>
+		<!ATTLIST way room CDATA #REQUIRED>
+
+	<!ELEMENT views (view+)>
+	
+	<!ELEMENT view (#PCDATA)>
+		<!ATTLIST view direction (north|east|south|west|above|below)  #REQUIRED> 
+
+	<!ELEMENT player (contents|target)*>
+		<!ATTLIST player position CDATA #REQUIRED>
+		<!ATTLIST player map CDATA #REQUIRED>
+		<!ATTLIST player name CDATA "Player">
+	
+	<!ELEMENT target (description,condition,creator?)>
+	
+	<!ELEMENT condition EMPTY>
+		<!ATTLIST condition type (give|talk) #REQUIRED>
+		<!ATTLIST condition value CDATA #REQUIRED>
+		
+	<!ELEMENT creator EMPTY>
+		<!ATTLIST creator name CDATA #REQUIRED>
+		
+	<!ELEMENT history (command*)>
+	<!ELEMENT command (#PCDATA)>
+	
+	<!ELEMENT dialogs (dialog-owner+)>
+		
+	<!ELEMENT  dialog-owner (dialog+)>
+		<!ATTLIST dialog-owner name CDATA #REQUIRED>
+			
+	<!ELEMENT dialog (phase|precondition)*>
+				
+	<!ELEMENT phase (object|reference)*>
+	
+	<!ELEMENT object (say,reply)>
+		<!ATTLIST object id CDATA #REQUIRED>
+		<!ATTLIST object type (dialog_continue|dialog_custom_result_1|dialog_custom_result_2|dialog_custom_result_3|dialog_error|dialog_npc_give|dialog_npc_take|dialog_end_failure|dialog_end_success) "dialog_end_failure">
+		<!ATTLIST object nextphase CDATA "0">
+	
+	<!ELEMENT reference EMPTY>
+		<!ATTLIST reference id CDATA #REQUIRED>
+	
+	<!ELEMENT say (#PCDATA)>
+	<!ELEMENT reply (#PCDATA)>
+		
+	<!ELEMENT gameobjects (characters?,items?)>
+	
+	<!ELEMENT characters (person+)>
+	
+	<!ELEMENT person (description,action?,property*,event*)>
+		<!ATTLIST person name CDATA #REQUIRED>
+
+	<!ELEMENT action EMPTY>
+		<!ATTLIST action type (moveRandom|leaveRoom|deleteItem) #IMPLIED>
+		
+	<!ELEMENT property EMPTY>
+		<!ATTLIST property name (useable|takeable|size|deleteonuse) #REQUIRED>
+		<!ATTLIST property value CDATA #REQUIRED>
+
+	<!ELEMENT event (actions)> 
+		<!ATTLIST event name (default|takeup|drop|playerenter|playerleave|use|dialog_continue|dialog_custom_result_1|dialog_custom_result_2|dialog_custom_result_3|dialog_error|dialog_npc_give|dialog_npc_take|dialog_end_failure|dialog_end_success|use_success|use_failure|timer) #REQUIRED>
+		
+	<!ELEMENT items (gameitem+)	>
+	
+	<!ELEMENT gameitem (description,property*,event*,combinations*)>
+		<!ATTLIST gameitem name CDATA #REQUIRED>
+		
+	<!ELEMENT combinations (with-object*)>
+	
+	<!ELEMENT actions (target*,action*,player-say*,npc-say*,inventory-item*,room-item*,alter-item*,delete-item*,random-success?)>
+
+	<!ELEMENT with-object (actions)>
+		<!ATTLIST with-object name CDATA #REQUIRED>
+		
+	<!ELEMENT inventory-item (#PCDATA)>
+	<!ELEMENT room-item (#PCDATA)>
+
+	<!ELEMENT alter-item (#PCDATA)>
+	<!ATTLIST alter-item property CDATA #REQUIRED>
+
+	<!ELEMENT delete-item (#PCDATA)>
+	<!ELEMENT random-success EMPTY>
+
+	<!ELEMENT player-say (#PCDATA)>
+	<!ELEMENT npc-say (#PCDATA)>

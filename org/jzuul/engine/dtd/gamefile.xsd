@@ -1,0 +1,429 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://www.jzuul.org" xmlns="http://www.jzuul.org" version="1.0">
+    <xs:simpleType name="directions">
+        <xs:restriction base="xs:token">
+            <xs:enumeration value="north"/>
+            <xs:enumeration value="east"/>
+            <xs:enumeration value="south"/>
+            <xs:enumeration value="west"/>
+            <xs:enumeration value="above"/>
+            <xs:enumeration value="below"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="dialog_events">
+        <xs:restriction base="xs:token">
+            <xs:enumeration value="dialog_continue"/>
+            <xs:enumeration value="dialog_custom_result_1"/>
+            <xs:enumeration value="dialog_custom_result_2"/>
+            <xs:enumeration value="dialog_custom_result_3"/>
+            <xs:enumeration value="dialog_error"/>
+            <xs:enumeration value="dialog_npc_give"/>
+            <xs:enumeration value="dialog_npc_take"/>
+            <xs:enumeration value="dialog_end_failure"/>
+            <xs:enumeration value="dialog_end_success"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="standard_events">
+        <xs:restriction base="xs:token">
+            <xs:enumeration value="default"/>
+            <xs:enumeration value="takeup"/>
+            <xs:enumeration value="drop"/>
+            <xs:enumeration value="playerenter"/>
+            <xs:enumeration value="playerleave"/>
+            <xs:enumeration value="use"/>
+            <xs:enumeration value="use_success"/>
+            <xs:enumeration value="use_failure"/>
+            <xs:enumeration value="timer"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="all_events">
+        <xs:union memberTypes="standard_events dialog_events"/>
+    </xs:simpleType>
+    <xs:simpleType name="action_types">
+        <xs:restriction base="xs:token">
+            <xs:enumeration value="moveRandom"/>
+            <xs:enumeration value="leaveRoom"/>
+            <xs:enumeration value="deleteItem"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:element name="gamefile">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" ref="description"/>
+                <xs:element minOccurs="0" maxOccurs="unbounded" ref="map"/>
+                <xs:element minOccurs="0" ref="player"/>
+                <xs:element minOccurs="0" ref="history"/>
+                <xs:element minOccurs="0" maxOccurs="unbounded" ref="dialogs"/>
+                <xs:element minOccurs="0" ref="gameobjects"/>
+            </xs:sequence>
+            <xs:attributeGroup ref="attlist.gamefile"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:attributeGroup name="attlist.gamefile">
+        <xs:attribute name="version" default="1.0"/>
+    </xs:attributeGroup>
+    <xs:element name="map">
+        <xs:complexType>
+            <xs:choice minOccurs="0" maxOccurs="unbounded">
+                <xs:element maxOccurs="unbounded" ref="room"/>
+                <xs:element ref="transitionroom"/>
+            </xs:choice>
+            <xs:attributeGroup ref="attlist.map"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:attributeGroup name="attlist.map">
+        <xs:attribute name="name" use="required" type="xs:string"/>
+        <xs:attribute name="startroom" use="required" type="xs:string"/>
+    </xs:attributeGroup>
+    <xs:element name="room">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="description"/>
+                <xs:element minOccurs="0" ref="image"/>
+                <xs:element minOccurs="0" ref="contents"/>
+                <xs:element minOccurs="0" ref="ways"/>
+                <xs:element minOccurs="0" ref="views"/>
+                <xs:element minOccurs="0" maxOccurs="unbounded" ref="event"/>
+            </xs:sequence>
+            <xs:attributeGroup ref="attlist.room"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:attributeGroup name="attlist.room">
+        <xs:attribute name="class" use="required" type="xs:string"/>
+        <xs:attribute name="name" use="required" type="xs:string"/>
+    </xs:attributeGroup>
+    <xs:element name="image">
+        <xs:complexType>
+            <xs:attributeGroup ref="attlist.image"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:attributeGroup name="attlist.image">
+        <xs:attribute name="file" use="required" type="xs:anyURI"/>
+    </xs:attributeGroup>
+    <xs:element name="transitionroom">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" ref="precondition"/>
+                <xs:element minOccurs="0" maxOccurs="unbounded" ref="ways"/>
+            </xs:sequence>
+            <xs:attributeGroup ref="attlist.transitionroom"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:attributeGroup name="attlist.transitionroom">
+        <xs:attribute name="name" use="required" type="xs:string"/>
+        <xs:attribute name="final" default="false" type="xs:boolean"/>
+        <xs:attribute name="target" use="required"/>
+    </xs:attributeGroup>
+    <xs:element name="precondition">
+        <xs:complexType>
+            <xs:attributeGroup ref="attlist.precondition"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:attributeGroup name="attlist.precondition">
+        <xs:attribute name="item" use="required" type="xs:string"/>
+    </xs:attributeGroup>
+    <xs:element name="description" type="xs:string"/>
+    <xs:element name="contents">
+        <xs:complexType>
+            <xs:choice minOccurs="0" maxOccurs="unbounded">
+                <xs:element ref="item"/>
+                <xs:element ref="character"/>
+            </xs:choice>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="item">
+        <xs:complexType>
+            <xs:attributeGroup ref="attlist.item"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:attributeGroup name="attlist.item">
+        <xs:attribute name="name" use="required"/>
+    </xs:attributeGroup>
+    <xs:element name="character">
+        <xs:complexType>
+            <xs:attributeGroup ref="attlist.character"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:attributeGroup name="attlist.character">
+        <xs:attribute name="name" use="required" type="xs:string"/>
+        <xs:attribute name="dialog" default="1" type="xs:positiveInteger"/>
+    </xs:attributeGroup>
+    <xs:element name="ways">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="unbounded" ref="way"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="way">
+        <xs:complexType>
+            <xs:attributeGroup ref="attlist.way"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:attributeGroup name="attlist.way">
+        <xs:attribute name="direction" use="required" type="directions"/>
+        <xs:attribute name="room" use="required" type="xs:string"/>
+    </xs:attributeGroup>
+    <xs:element name="views">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="unbounded" ref="view"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="view">
+        <xs:complexType mixed="true">
+            <xs:attributeGroup ref="attlist.view"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:attributeGroup name="attlist.view">
+        <xs:attribute name="direction" use="required" type="directions"/>
+    </xs:attributeGroup>
+    <xs:element name="player">
+        <xs:complexType>
+            <xs:choice minOccurs="0" maxOccurs="unbounded">
+                <xs:element ref="contents"/>
+                <xs:element ref="target"/>
+            </xs:choice>
+            <xs:attributeGroup ref="attlist.player"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:attributeGroup name="attlist.player">
+        <xs:attribute name="position" use="required" type="xs:string"/>
+        <xs:attribute name="map" use="required" type="xs:string"/>
+        <xs:attribute name="name" default="Player" type="xs:string"/>
+    </xs:attributeGroup>
+    <xs:element name="target">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="description"/>
+                <xs:element ref="condition"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="condition">
+        <xs:complexType>
+            <xs:attributeGroup ref="attlist.condition"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:attributeGroup name="attlist.condition">
+        <xs:attribute name="type" use="required">
+            <xs:simpleType>
+                <xs:restriction base="xs:token">
+                    <xs:enumeration value="give"/>
+                    <xs:enumeration value="talk"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="value" use="required"/>
+    </xs:attributeGroup>
+    <xs:element name="history">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" ref="command"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="command" type="xs:string"/>
+    <xs:element name="dialogs">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="unbounded" ref="dialog-owner"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="dialog-owner">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="unbounded" ref="dialog"/>
+            </xs:sequence>
+            <xs:attributeGroup ref="attlist.dialog-owner"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:attributeGroup name="attlist.dialog-owner">
+        <xs:attribute name="name" use="required"/>
+    </xs:attributeGroup>
+    <xs:element name="dialog">
+        <xs:complexType>
+            <xs:choice minOccurs="0" maxOccurs="unbounded">
+                <xs:element ref="phase"/>
+                <xs:element ref="precondition"/>
+            </xs:choice>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="phase">
+        <xs:complexType>
+            <xs:choice minOccurs="0" maxOccurs="unbounded">
+                <xs:element ref="object"/>
+                <xs:element ref="reference"/>
+            </xs:choice>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="object">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="say"/>
+                <xs:element ref="reply"/>
+            </xs:sequence>
+            <xs:attributeGroup ref="attlist.object"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:attributeGroup name="attlist.object">
+        <xs:attribute name="id" use="required" type="xs:nonNegativeInteger"/>
+        <xs:attribute name="type" default="dialog_end_failure" type="dialog_events"/>
+        <xs:attribute name="nextphase" default="0" type="xs:nonNegativeInteger"/>
+    </xs:attributeGroup>
+    <xs:element name="reference">
+        <xs:complexType>
+            <xs:attributeGroup ref="attlist.reference"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:attributeGroup name="attlist.reference">
+        <xs:attribute name="id" use="required"/>
+    </xs:attributeGroup>
+    <xs:element name="say" type="xs:string"/>
+    <xs:element name="reply" type="xs:string"/>
+    <xs:element name="gameobjects">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" ref="characters"/>
+                <xs:element minOccurs="0" ref="items"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="characters">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="unbounded" ref="person"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="person">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="description"/>
+                <xs:element minOccurs="0" ref="action"/>
+                <xs:element minOccurs="0" maxOccurs="unbounded" ref="property"/>
+                <xs:element minOccurs="0" maxOccurs="unbounded" ref="event"/>
+            </xs:sequence>
+            <xs:attributeGroup ref="attlist.person"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="player-say" type="xs:string"/>
+    <xs:element name="npc-say" type="xs:string"/>
+    <xs:attributeGroup name="attlist.person">
+        <xs:attribute name="name" use="required" type="xs:string"/>
+    </xs:attributeGroup>
+    <xs:element name="action">
+        <xs:complexType>
+            <xs:attributeGroup ref="attlist.action"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:attributeGroup name="attlist.action">
+        <xs:attribute name="type" type="action_types"/>
+    </xs:attributeGroup>
+    <xs:element name="property">
+        <xs:complexType>
+            <xs:attributeGroup ref="attlist.property"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:attributeGroup name="attlist.property">
+        <xs:attribute name="name" use="required">
+            <xs:simpleType>
+                <xs:restriction base="xs:token">
+                    <xs:enumeration value="useable"/>
+                    <xs:enumeration value="takeable"/>
+                    <xs:enumeration value="size"/>
+                    <xs:enumeration value="deleteonuse"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="value" use="required"/>
+    </xs:attributeGroup>
+    <xs:element name="event">
+        <xs:complexType>
+            <xs:complexContent>
+                <xs:extension base="actions">
+                    <xs:attributeGroup ref="attlist.event"/>
+                </xs:extension>
+            </xs:complexContent>
+        </xs:complexType>
+    </xs:element>
+    <xs:attributeGroup name="attlist.event">
+        <xs:attribute name="name" use="required" type="all_events"/>
+    </xs:attributeGroup>
+    <xs:element name="items">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="unbounded" ref="gameitem"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="gameitem">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="description"/>
+                <xs:element minOccurs="0" maxOccurs="unbounded" ref="property"/>
+                <xs:element minOccurs="0" maxOccurs="unbounded" ref="event"/>
+                <xs:element minOccurs="0" maxOccurs="unbounded" ref="combinations"/>
+            </xs:sequence>
+            <xs:attributeGroup ref="attlist.gameitem"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:attributeGroup name="attlist.gameitem">
+        <xs:attribute name="name" use="required"/>
+    </xs:attributeGroup>
+    <xs:element name="combinations">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" ref="with-object"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:complexType name="actions">
+        <xs:sequence>
+            <xs:element ref="actions"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="actions">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" ref="target"/>
+                <xs:element minOccurs="0" maxOccurs="unbounded" ref="action"/>
+                <xs:element minOccurs="0" maxOccurs="unbounded" ref="player-say"/>
+                <xs:element minOccurs="0" maxOccurs="unbounded" ref="npc-say"/>
+                <xs:element minOccurs="0" maxOccurs="unbounded" ref="inventory-item"/>
+                <xs:element minOccurs="0" maxOccurs="unbounded" ref="room-item"/>
+                <xs:element minOccurs="0" maxOccurs="unbounded" ref="alter-item"/>
+                <xs:element minOccurs="0" maxOccurs="unbounded" ref="delete-item"/>
+                <xs:element minOccurs="0" ref="random-success"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="with-object">
+        <xs:complexType>
+            <xs:complexContent>
+                <xs:extension base="actions">
+                    <xs:attributeGroup ref="attlist.with-object"/>
+                </xs:extension>
+            </xs:complexContent>
+        </xs:complexType>
+    </xs:element>
+    <xs:attributeGroup name="attlist.with-object">
+        <xs:attribute name="name" use="required" type="xs:string"/>
+    </xs:attributeGroup>
+    <xs:element name="inventory-item" type="xs:string"/>
+    <xs:element name="room-item" type="xs:string"/>
+    <xs:element name="alter-item">
+        <xs:complexType mixed="true">
+            <xs:attributeGroup ref="attlist.alter-item"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:attributeGroup name="attlist.alter-item">
+        <xs:attribute name="property" use="required"/>
+    </xs:attributeGroup>
+    <xs:element name="delete-item" type="xs:string"/>
+    <xs:element name="random-success">
+        <xs:complexType/>
+    </xs:element>
+</xs:schema>

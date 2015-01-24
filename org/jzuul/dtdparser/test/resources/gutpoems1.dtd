@@ -1,0 +1,49 @@
+<!--
+GUTPOEMS DTD V 1.0
+==================
+
+GENERAL NOTES
++++++++++++++
+This is gutpoems dtd version 1.0
+file name is gutpoems1.dtd
+This dtd is a first pass at a dtd for marking up 
+poetry and books of poetry.
+It was developed for marking up the poems of Robert burns.
+One of the problems with poems is that as every line
+requires a seperate element object, complete books of 
+poetry can take a long time to render on browsers.
+
+For this reason the books can be divided into parts using the
+poemsfrag element.
+
+These fragments can be included using external entities
+
+
+REVISION HISTORY
+++++++++++++++++
+Original Author
+Frank Boumphrey  1/19/2000
+
+COPYRIGHT NOTICE
+++++++++++++++++
+This DTD is the copyright of the HTML writers guild.
+Permission is given in perpetuity for any one to use 
+this DTD provided that these notes and this  copyright 
+notice is included.
+
+
+-->
+
+<!--Begin gutpoems DTD-->
+<!ELEMENT gutpoems (gutblurb,markupblurb,poemsfrag*,endmarkupblurb?,endgutblurb?)>
+
+<!ELEMENT gutblurb (#PCDATA|para|simplesect|title)*>
+<!ELEMENT markupblurb (#PCDATA|para|simplesect|title)*>
+<!ELEMENT endmarkupblurb (#PCDATA|para|simplesect|title)*>
+<!ELEMENT endgutblurb (#PCDATA|para|simplesect|title)*>
+
+<!--Include poemsfrag.dtd-->
+
+<!ENTITY % poemsfrag SYSTEM "poemsfrag.dtd">
+%poemsfrag;
+<!--end of file-->

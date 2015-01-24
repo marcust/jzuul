@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE gamefile SYSTEM "file:org/jzuul/engine/dtd/gamefile.dtd">
+
+<gamefile version="1.0">
+  <description>Welcome to JBowling ;-)
+
+Manual: you got an infinite number of bowling balls
+Manual: use them with the bowling alley until you got 5 winning points</description>
+  <map name="default" startroom="bowling_alley">
+    <room class="org.jzuul.engine.rooms.Room" name="bowling_alley">
+      <description> at a wondefull bowling alley</description>
+      <ways />
+      <views>
+        <view direction="north">the exit</view>
+        <view direction="east">the bowling alley</view>
+        <view direction="south">a couple of people</view>
+        <view direction="west">a displey</view>
+      </views>
+      <contents>
+        <item name="bowling_alley" />
+      </contents>
+    </room>
+    <transitionroom name="ende" final="true" target="default">
+      <precondition item="point" />
+      <precondition item="point" />
+      <precondition item="point" />
+      <precondition item="point" />
+      <precondition item="point" />
+      <ways>
+        <way direction="south" room="bowling_alley" />
+      </ways>
+    </transitionroom>
+  </map>
+  <player position="bowling_alley" map="default" name="Player">
+    <target>
+      <description>Play Bowling</description>
+      <condition type="give" value="bowling_alley" />
+    </target>
+    <contents>
+      <item name="bowling_ball" />
+      <item name="bowling_ball" />
+      <item name="bowling_ball" />
+      <item name="bowling_ball" />
+      <item name="bowling_ball" />
+    </contents>
+  </player>
+  <gameobjects>
+    <items>
+      <gameitem name="bowling_ball">
+        <description>a nice round bowling ball</description>
+        <combinations>
+          <with-object name="bowling_alley">
+            <actions>
+              <player-say>The ball makes it's way</player-say>
+              <random-success />
+            </actions>
+          </with-object>
+        </combinations>
+        <property name="useable" value="false" />
+        <property name="takeable" value="false" />
+        <property name="deleteonuse" value="false" />
+        <property name="size" value="1" />
+      </gameitem>
+      <gameitem name="bowling_alley">
+        <description>a long bowling alley</description>
+        <property name="size" value="10" />
+        <property name="useable" value="false" />
+        <event name="use_success">
+          <actions>
+            <player-say>Strike!</player-say>
+            <inventory-item>point</inventory-item>
+          </actions>
+        </event>
+        <event name="use_failure">
+          <actions>
+            <player-say>Miss!</player-say>
+          </actions>
+        </event>
+      </gameitem>
+      <gameitem name="point">
+        <description>a winning Point</description>
+        <property name="size" value="1" />
+      </gameitem>
+    </items>
+  </gameobjects>
+</gamefile>
+

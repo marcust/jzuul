@@ -1,0 +1,86 @@
+<!--
+===========================================================================================
+Reach Envelope DTD
+Copyright (c) Propylon Ltd. 2002
+Version 1.0
+2002-09-04
+============================================================================================
+-->
+<!-- inline elements macro for non-US-ASCII characters -->
+<!ELEMENT ReachEnvelope (Version, Header, Body?, Authentication)>
+<!ELEMENT Version (#PCDATA)>
+<!ELEMENT Header (MessageDetails, MessageAudit, MessageAuthentication?, MessageErrors?)>
+<!ELEMENT MessageDetails (MessageType, MessageRole, MessageSource, MessageSourceID,
+(MessageDestination | MessageDestinations), Property*)>
+<!ELEMENT MessageAudit (CorrelationID, MessageID, Timestamp, Processed*, Property*,
+MessageTrace*)>
+<!ELEMENT MessageAuthentication (#PCDATA)>
+<!ELEMENT MessageErrors (Error*)>
+<!ELEMENT Body (#PCDATA)>
+<!ELEMENT Authentication (#PCDATA)>
+<!--
+Message Details sub-elements
+========================================
+-->
+<!ELEMENT MessageDestinations (MessageDestination+)>
+<!ELEMENT MessageType (#PCDATA)>
+<!ATTLIST MessageType
+  class CDATA #REQUIRED
+>
+<!ELEMENT MessageRole (#PCDATA)>
+<!ATTLIST MessageRole
+  rtype CDATA #IMPLIED
+>
+<!ELEMENT MessageSource (#PCDATA)>
+<!ATTLIST MessageSource
+  idtype CDATA #REQUIRED
+>
+<!ELEMENT MessageSourceID (#PCDATA)>
+<!ELEMENT MessageDestination (#PCDATA)>
+<!ATTLIST MessageDestination
+  idtype CDATA #REQUIRED
+  source CDATA #IMPLIED
+>
+<!--
+Message Audit sub-elements
+========================================
+-->
+<!ELEMENT CorrelationID (#PCDATA)>
+<!ELEMENT MessageID (#PCDATA)>
+<!ELEMENT Timestamp (#PCDATA)>
+<!ELEMENT Processed (#PCDATA)>
+<!ATTLIST Processed
+  Name (pass | fail) #REQUIRED
+>
+<!ELEMENT MessageTrace (#PCDATA)>
+<!--
+Message Error sub-elements
+========================================
+-->
+<!ELEMENT Error (ErrorRaisedBy, ErrorID?, ErrorType, ErrorText, ErrorLocation?)>
+<!ELEMENT ErrorRaisedBy (#PCDATA)>
+<!ELEMENT ErrorID (#PCDATA)>
+<!ELEMENT ErrorType (#PCDATA)>
+<!ELEMENT ErrorText (#PCDATA)>
+<!ELEMENT ErrorLocation (#PCDATA)>
+<!--
+common sub-element
+========================================
+-->
+<!ELEMENT Property (#PCDATA)>
+<!ATTLIST Property
+  Name CDATA #REQUIRED
+>
+<!--
+===========================
+Character Encoding & Glyphs
+===========================
+-->
+<!-- Arbitrary Unicode code point. Unicode 3.0.0
+http://www.unicode.org/charts/charindex.html -->
+<!ELEMENT unicode EMPTY>
+<!ATTLIST unicode
+  ch CDATA #REQUIRED
+>
+<!-- END -->
+<!-- END -->

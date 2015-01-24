@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/org/jzuul/engine/dtd/gamefile.xsl" ?>
+<!DOCTYPE gamefile SYSTEM "file:org/jzuul/engine/dtd/gamefile.dtd">
+<gamefile version="1.0" >
+	<map name="default" startroom="haupteingang">
+<room class="org.jzuul.engine.rooms.Room" name="hoersal">
+	<description>in einem Vorlesungssaal</description>
+	<ways>
+		<way direction="west" room="haupteingang" />
+	</ways>
+</room>
+<room class="org.jzuul.engine.rooms.Room" name="fachschaft">
+	<description>in der Fachschaft Informatik</description>
+	<contents>
+		<item name="mate" />
+		<item name="mate" />
+		<item name="mate" />
+	</contents>
+	<ways>
+		<way direction="east" room="beamer" />
+		<way direction="below" room="commzone" />
+	</ways>
+	<event name="playerenter">
+		<actions>
+			<say>Hier riechts komisch!</say>
+		</actions>
+	</event>
+</room>
+<room class="org.jzuul.engine.rooms.Room" name="cafeteria">
+	<description>in der Cafeteria der Uni</description>
+	<ways>
+		<way direction="east" room="haupteingang" />
+	</ways>
+</room>
+<room class="org.jzuul.engine.rooms.Room" name="haupteingang">
+	<description>vor dem Haupteingang der Universität</description>
+	<contents>
+		<item name="apple" />
+		<character name="cat" dialog="1" />
+		<character name="hacker" dialog="1" />
+		<item name="knife" />
+		<item name="tree" />
+	</contents>
+	<ways>
+		<way direction="north" room="commzone" />
+		<way direction="east" room="hoersal" />
+		<way direction="south" room="labor" />
+		<way direction="west" room="cafeteria" />
+	</ways>
+	<views>
+		<view direction="north">einen steinigen weg</view>
+		<view direction="east">eine große Tür</view>
+		<view direction="south">eine kleine Tür</view>
+		<view direction="west">eine Anzeigetafel</view>
+	</views>
+	<event name="timer">
+		<actions>
+			<say>Ein Apfel fällt vom Baum</say>		
+			<room-item>apple</room-item>
+		</actions>
+	</event>
+
+</room>
+<room class="org.jzuul.engine.rooms.BeamRoom" name="beamer">
+	<description>in einem Raum mit komischen Geräten</description>
+	<ways>
+		<way direction="west" room="fachschaft" />
+	</ways>
+</room>
+<room class="org.jzuul.engine.rooms.Room" name="commzone">
+	<description>in der Kommunikationszone</description>
+	<contents>
+		<character name="geist" />
+		<character name="parrot" />
+	</contents>
+	<ways>
+		<way direction="south" room="haupteingang" />
+		<way direction="above" room="fachschaft" />
+	</ways>
+</room>
+<room class="org.jzuul.engine.rooms.Room" name="labor">
+	<description>in einem Rechnerraum</description>
+	<ways>
+		<way direction="north" room="haupteingang" />
+		<way direction="east" room="buero" />
+	</ways>
+</room>
+<room class="org.jzuul.engine.rooms.Room" name="buero">
+	<description>im Verwaltungsbüro der Informatik</description>
+	<ways>
+		<way direction="west" room="labor" />
+	</ways>
+</room>
+<transitionroom name="uebergang1" final="false" target="newmap">
+	<precondition item="knife"/>
+	<ways>
+		<way direction="south" room="fachschaft" />
+	</ways>
+</transitionroom>
+</map>
+<map name="newmap" startroom="besenkammer">
+	<room class="org.jzuul.engine.rooms.Room" name="besenkammer">
+		<description>in einer Besenkammer</description>
+		<ways>
+			<way direction="north" room="abstellkammer" />
+		</ways>
+	</room>
+	<room class="org.jzuul.engine.rooms.Room" name="abstellkammer">
+		<description>in einer Abstellkammer</description>
+		<ways>
+			<way direction="south" room="besenkammer" />
+		</ways>
+	</room>
+<transitionroom name="uebergang2" final="true" target="default">
+	<precondition item="knife"/>
+	<ways>
+		<way direction="east" room="besenkammer" />
+	</ways>
+</transitionroom>
+</map>
+<player position="haupteingang" map="default">
+	<target>
+		<description>Such eine Person die dir weiterhilft</description>
+		<condition type="talk" value="hacker" />
+	</target>
+</player>
+<history>
+</history>
+<dialogs>
+	<dialog-owner name="hacker">
+		<dialog>
+			<phase>
+			<object id="1"  type="dialog_end_failure">
+				<say>Hallo wie gehts</say>
+				<reply>Könnte nicht schlechter sein</reply>
+			</object>
+			<object id="2" type="dialog_end_failure">
+				<say>Was machst du da?</say>
+				<reply>Was geht dich das an?!?</reply>
+			</object>
+			<object id="3" type="dialog_continue" nextphase="2">
+				<say>Kannst du mir sagen was ich tun soll?</say>
+				<reply>Vielleicht...</reply>
+			</object>
+		<object id="4" type="dialog_end_failure">
+				<say>Wie war das nochmal mit Linux?</say>
+				<reply>Willst du mich verarschen?</reply>
+		</object>
+		<object id="5" type="dialog_end_failure">
+				<say>Möchtest du diese schöne Lederjacke kaufen?</say>
+				<reply>Willst du mich verarschen?</reply>
+		</object>
+		</phase>
+		<phase>
+			<object id="6" type="dialog_end_failure">
+				<say>Ich hab da dieses Windowsproblem...</say>
+				<reply>Win... was? Kenne ich nicht</reply>
+			</object>
+			<reference id="2" />
+			<reference id="4" />
+			<object id="7" type="dialog_custom_result_1">
+
+				<say>Was muss ich tun damit du mir bei diesem Problem hillfst?</say>
+				<reply>Besorg mir Mate!</reply>
+			</object>
+		</phase>
+		</dialog>
+		<dialog>
+			<precondition item="mate" />
+			<phase>
+				<object id="1" type="dialog_end_success">
+					<say>Kannst du mir jetzt sagen was ich tun soll?</say>
+					<reply>Imlementiere das Gameplay</reply>
+				</object>
+			</phase>
+		</dialog>
+	</dialog-owner>
+</dialogs>
+<gameobjects>
+	<characters>
+		<person name="hacker">
+			<description>ein komischer Geek</description>
+			<property name="useable" value="false" />
+			<property name="takeable" value="false" />
+			<property name="size" value="5" />		
+			<event name="dialog_custom_result_1">
+				<actions>
+				<target>
+					<description>Besorg dem Hacker Mate</description>
+					<condition type="give" value="mate" />
+				</target>
+				</actions>
+			</event>
+		</person>		
+		<person name="cat">
+			<description>eine schwarze Katze</description>
+			<property name="useable" value="false" />
+			<property name="takeable" value="true" />
+			<property name="size" value="1" />
+			<event name="takeup">
+				<actions>
+				<say>Miauu!</say>
+				</actions>
+			</event>
+			<event name="drop">
+				<actions>
+				<say>Mowww</say>
+				</actions>
+			</event>
+			<event name="default">
+				<actions>
+				<action type="moveRandom" />
+				</actions>
+			</event>
+		</person>
+		
+			<person name="parrot">
+			<description>ein Papagei</description>
+			<event name="playerleave">
+				<actions>
+				<say>Tschüss, Lora</say>
+				</actions>
+			</event>
+			<event name="playerenter">
+				<actions>
+				<say>Hallo, Lora</say>
+				</actions>
+			</event>
+		</person>
+		
+		<person name="geist">
+			<description>ein guter Geist</description>
+			<event name="playerenter">
+				<actions>
+				<action type="leaveRoom" />
+				</actions>
+			</event>
+			
+		</person>
+		
+	</characters>
+	<items>
+		
+		<gameitem name="apfelschalen">
+			<description>normale Apfelschalen</description>
+			<property name="size" value="1" />
+			<property name="useable" value="false" />
+		</gameitem>
+		
+		<gameitem name="apple">
+			<description>eine Apfel</description>
+			<property name="size" value="2" />
+			<property name="useable" value="false" />
+		</gameitem>
+
+		<gameitem name="geschaelterapfel">
+			<description>eine geschaelter Apfel</description>
+			<property name="size" value="2" />
+			<property name="useable" value="true" />
+			<property name="deleteonuse" value="true" />
+			<event name="use">
+				<actions>
+				<say>Mmm, lecker</say>
+				</actions>
+			</event>
+		</gameitem>
+		
+		<gameitem name="knife">
+			<description>ein Kückenmesser</description>
+			<property name="size" value="2" />
+			<property name="useable" value="true" />
+			<event name="use">
+				<actions>
+				<say>Autsch</say>
+				</actions>
+			</event>
+			<combinations>
+
+				<with-object name="apple">
+					<actions>
+					<say>Du hast den Apfel geschält, die Schalen fallen auf den Boden</say>
+					<inventory-item>geschaelterapfel</inventory-item>
+					<room-item>apfelschalen</room-item>
+					<delete-item>apple</delete-item>
+					</actions>
+				</with-object>
+
+				<with-object name="cat">
+					<actions>
+						<say>Ich will die Katze nicht verletzen</say>					
+					</actions>
+				</with-object>
+
+				<with-object name="tree">
+					<actions>
+					<say>Du ritzt ein herz in den Baum</say>
+					<alter-item property="description">Ein Baum mit einem Herz darin</alter-item>
+					</actions>
+				</with-object>
+
+			</combinations>
+		</gameitem>
+
+		<gameitem name="tree">
+			<description>Ein schöner Apfelbaum</description>
+			<property name="takeable" value="false" />
+			<property name="size" value="10" />
+			<property name="useable" value="false" />
+		</gameitem>
+		
+		<gameitem name="mate">
+			<description>Wunderbar erfrischende Mate</description>
+			<property name="takeable" value="true" />
+			<property name="size" value="2" />
+			<property name="useable" value="true" />
+			<property name="deleteonuse" value="true" />
+			<event name="use">
+				<actions>
+				<say>Sehr erfrischend</say>
+				</actions>
+			</event>
+		</gameitem>
+		
+		
+		
+	</items>
+</gameobjects>
+
+</gamefile>

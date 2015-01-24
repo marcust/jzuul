@@ -1,0 +1,14 @@
+Zuul.jar
+doc
+*.xml
+.classpath
+.project
+build
+*.jar
+java.policy.applet
+core
+core.*
+*.prof
+dist
+*.txt
+.cdtproject

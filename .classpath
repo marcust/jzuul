@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path=""/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="lib/junit.jar"/>
+	<classpathentry sourcepath="/home/marcus/jdom-b10.zip" kind="lib" path="lib/jdom.jar"/>
+	<classpathentry sourcepath="/home/marcus/Xerces-J-src.2.6.2.zip" kind="lib" path="lib/xerces.jar"/>
+	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
+	<classpathentry sourcepath="lib/swt_linux/swtsrc.zip" kind="lib" path="lib/swt_linux/swt.jar"/>
+	<classpathentry kind="lib" path="lib/swt_linux/swt-pi.jar"/>
+	<classpathentry kind="output" path=""/>
+</classpath>

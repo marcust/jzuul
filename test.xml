@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE gamefile SYSTEM "file:org/jzuul/engine/dtd/gamefile.dtd">
+
+<gamefile>
+  <description />
+  <map />
+  <gameobjects>
+    <characters />
+    <items />
+  </gameobjects>
+</gamefile>
+

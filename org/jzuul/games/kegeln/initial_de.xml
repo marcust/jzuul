@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE gamefile SYSTEM "file:org/jzuul/engine/dtd/gamefile.dtd">
+
+<gamefile version="1.0">
+  <description>Willkommen zu JKegeln! ;-)
+
+Anleitung: du besitzt ein unendlich Anzahl von Kegelkugeln
+Anleitung: benutze sie mit der Kegelbahn bis du fünf Gewinnpunkte hast</description>
+  <map name="default" startroom="kegelbahn">
+    <room class="org.jzuul.engine.rooms.Room" name="kegelbahn">
+      <description>auf einer wunderschönen Kegelbahn</description>
+      <ways />
+      <views>
+        <view direction="north">den Ausgang</view>
+        <view direction="east">eine Kegelbahn</view>
+        <view direction="south">viele Leute</view>
+        <view direction="west">eine Anzeigetafel</view>
+      </views>
+      <contents>
+        <item name="kegelbahn" />
+      </contents>
+    </room>
+    <transitionroom name="ende" final="true" target="default">
+      <precondition item="gewinnpunkt" />
+      <precondition item="gewinnpunkt" />
+      <precondition item="gewinnpunkt" />
+      <precondition item="gewinnpunkt" />
+      <precondition item="gewinnpunkt" />
+      <ways>
+        <way direction="south" room="kegelbahn" />
+      </ways>
+    </transitionroom>
+  </map>
+  <player position="kegelbahn" map="default" name="Player">
+    <target>
+      <description>Spiele Kegeln</description>
+      <condition type="give" value="kegelbahn" />
+    </target>
+    <contents>
+      <item name="kegelkugel" />
+      <item name="kegelkugel" />
+      <item name="kegelkugel" />
+      <item name="kegelkugel" />
+      <item name="kegelkugel" />
+    </contents>
+  </player>
+  <gameobjects>
+    <items>
+      <gameitem name="kegelkugel">
+        <description>eine wunderbar runde Kegelkugel</description>
+        <combinations>
+          <with-object name="kegelbahn">
+            <actions>
+              <player-say>Die Kugel rollt dahin</player-say>
+              <random-success />
+            </actions>
+          </with-object>
+        </combinations>
+        <property name="useable" value="false" />
+        <property name="takeable" value="false" />
+        <property name="deleteonuse" value="false" />
+        <property name="size" value="1" />
+      </gameitem>
+      <gameitem name="kegelbahn">
+        <description>eine lange Kegelbahn</description>
+        <property name="size" value="10" />
+        <property name="useable" value="false" />
+        <event name="use_success">
+          <actions>
+            <player-say>Alle neune</player-say>
+            <inventory-item>gewinnpunkt</inventory-item>
+          </actions>
+        </event>
+        <event name="use_failure">
+          <actions>
+            <player-say>Voll daneben</player-say>
+          </actions>
+        </event>
+      </gameitem>
+      <gameitem name="gewinnpunkt">
+        <description>einen Gewinnpunkt</description>
+        <property name="size" value="1" />
+      </gameitem>
+    </items>
+  </gameobjects>
+</gamefile>
+

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE gamefile SYSTEM "file:org/jzuul/engine/dtd/gamefile.dtd">
+
+<gamefile version="1.0">
+  <description>Welcome to shoot the Xerces developer</description>
+  <map name="default" startroom="eingang">
+    <room class="org.jzuul.engine.rooms.Room" name="eingang">
+      <contents>
+        <item name="gun" />
+      </contents>
+      <description>Eine düstere Welt</description>
+      <ways />
+      <views />
+    </room>
+    <room class="org.jzuul.engine.rooms.Room" name="hölle">
+      <description>ein sehr warmer Raum</description>
+      <contents>
+        <character name="xerces_developer" dialog="1" />
+      </contents>
+      <ways>
+        <way direction="north" room="eingang" />
+      </ways>
+      <event name="timer">
+        <actions>
+          <npc-say>Hallo, ich bin ein neuer Xerces core developer</npc-say>
+          <room-item>xerces_developer</room-item>
+          <delete-item>leiche</delete-item>
+        </actions>
+      </event>
+    </room>
+  </map>
+  <player position="haupteingang" map="default" name="Player" />
+  <gameobjects>
+    <characters>
+      <person name="xerces_developer">
+        <description>Ein Xerces Core Entwickler</description>
+        <action type="moveRandom" />
+      </person>
+    </characters>
+    <items>
+      <gameitem name="gun">
+        <description>Ein wunderschöne Pischtole</description>
+        <property name="takeable" value="true" />
+        <property name="size" value="2" />
+        <property name="useable" value="no" />
+        <combinations>
+          <with-object name="xerces_developer">
+            <actions>
+              <room-item>leiche</room-item>
+              <player-say>Getroffen!</player-say>
+              <npc-say>Argh</npc-say>
+              <delete-item>xerces_developer</delete-item>
+            </actions>
+          </with-object>
+        </combinations>
+      </gameitem>
+      <gameitem name="leiche">
+        <description>Ein toter Xerces Developer</description>
+      </gameitem>
+    </items>
+  </gameobjects>
+</gamefile>
+

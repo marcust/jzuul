@@ -1,0 +1,26 @@
+#!/bin/sh
+
+OS=`uname`
+
+if [ $OS = "Linux" ]; then
+CLASS=org.jzuul.tools.GameFileRunner
+if [ -d lib/swt_linux_motif ]; then
+	LIBRARY_PATH=lib/swt_linux_motif
+fi
+
+if [ -d lib/swt_linux ]; then
+	LIBRARY_PATH=lib/swt_linux
+fi
+JAVA=`which java`
+fi
+
+if [ $OS = "Darwin" ]; then
+CLASS=org.jzuul.tools.GameFileRunner
+LIBRARY_PATH=lib/swt_macosx_carbon
+JAVA=$LIBRARY_PATH/java_swt
+chmod ugo+x $JAVA 1>/dev/null 2>&1
+fi
+
+CLASSPATH=lib/xerces.jar:lib/jdom.jar:$LIBRARY_PATH/swt.jar:$LIBRARY_PATH/swt-pi.jar:./
+
+$JAVA -cp $CLASSPATH -Djava.library.path=$LIBRARY_PATH $CLASS $@

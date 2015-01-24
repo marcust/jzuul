@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="zuul" default="distro-all" basedir=".">
+ <property name="dist" value="dist"/>
+ <property name="prefix" value="jzuul"/>
+ <target name="distro-all" depends="bin-tars,source-tar,tar-gz,tar-bz2,delete-tar"/>
+ <target name="bin-tars" depends="bin-tar-macosx,bin-tar-win32,bin-tar-linux,bin-tar-linux-motif"/>
+ <target name="bin-tar-macosx">
+  <tar destfile="${dist}/jzuul-bin-macosx.tar">
+   <tarfileset dir="./org" prefix="${prefix}/org">
+    <exclude name="build/"/>
+    <exclude name="lib/"/>
+    <include name="**/*.class"/>
+    <include name="**/*.dtd"/>
+    <include name="**/*.xml"/>
+    <include name="**/*.properties"/>
+   </tarfileset>
+   <tarfileset dir="." includes="etc/artwork/jz.png" fullpath="${prefix}/jzuul-icon.png"/>
+   <tarfileset dir="./etc/artwork" prefix="${prefix}/etc/artwork">
+    <include name="**/*.jpg"/>
+    <include name="**/*.png"/>
+   </tarfileset>
+   <tarfileset dir="./lib" prefix="${prefix}/lib">
+    <include name="xerces.jar"/>
+    <include name="jdom.jar"/>
+   </tarfileset>
+   <tarfileset dir="./" includes="rungamefile,gameditor" mode="555" prefix="${prefix}/"/>
+   <tarfileset dir="./" includes="LICENSE,LICENSE.DE,README" prefix="${prefix}/"/>
+   <tarfileset dir="./lib/swt_macosx_carbon" prefix="${prefix}/lib/swt_macosx_carbon"/>
+  </tar>
+ </target>
+ <target name="bin-tar-win32">
+  <tar destfile="${dist}/jzuul-bin-win32.tar">
+   <tarfileset dir="./org" prefix="${prefix}/org">
+    <exclude name="build/"/>
+    <exclude name="lib/"/>
+    <include name="**/*.class"/>
+    <include name="**/*.dtd"/>
+    <include name="**/*.xml"/>
+    <include name="**/*.properties"/>
+   </tarfileset>
+   <tarfileset dir="." includes="etc/artwork/favicon.ico" fullpath="${prefix}/jzuul-icon.ico"/>
+   <tarfileset dir="./etc/artwork" prefix="${prefix}/etc/artwork">
+    <include name="**/*.jpg"/>
+    <include name="**/*.png"/>
+   </tarfileset>
+   <tarfileset dir="./lib" prefix="${prefix}/lib">
+    <include name="xerces.jar"/>
+    <include name="jdom.jar"/>
+   </tarfileset>
+   <tarfileset dir="./" includes="rungamefile.bat,gameditor.bat,LICENSE,LICENSE.DE,README" prefix="${prefix}/"/>
+   <tarfileset dir="./lib/swt_win32" prefix="${prefix}/lib/swt_win32"/>
+  </tar>
+ </target>
+ <target name="bin-tar-linux">
+  <tar destfile="${dist}/jzuul-bin-linux.tar">
+   <tarfileset dir="./org" prefix="${prefix}/org">
+    <exclude name="build/"/>
+    <exclude name="lib/"/>
+    <include name="**/*.class"/>
+    <include name="**/*.dtd"/>
+    <include name="**/*.xml"/>
+    <include name="**/*.properties"/>
+   </tarfileset>
+   <tarfileset dir="." includes="etc/artwork/jz.png" fullpath="${prefix}/jzuul-icon.png"/>
+   <tarfileset dir="./etc/artwork" prefix="${prefix}/etc/artwork">
+    <include name="**/*.jpg"/>
+    <include name="**/*.png"/>
+   </tarfileset>
+   <tarfileset dir="./lib" prefix="${prefix}/lib">
+    <include name="xerces.jar"/>
+    <include name="jdom.jar"/>
+   </tarfileset>
+   <tarfileset dir="./" includes="rungamefile,gameditor" mode="555" prefix="${prefix}/"/>
+   <tarfileset dir="./" includes="LICENSE,LICENSE.DE,README" prefix="${prefix}/"/>
+   <tarfileset dir="./lib/swt_linux" prefix="${prefix}/lib/swt_linux"/>
+  </tar>
+ </target>
+ <target name="bin-tar-linux-motif">
+  <tar destfile="${dist}/jzuul-bin-linux-motif.tar">
+   <tarfileset dir="./org" prefix="${prefix}/org">
+    <exclude name="build/"/>
+    <exclude name="lib/"/>
+    <include name="**/*.class"/>
+    <include name="**/*.dtd"/>
+    <include name="**/*.xml"/>
+   <include name="**/*.properties"/>   	
+   </tarfileset>
+   <tarfileset dir="." includes="etc/artwork/jz.png" fullpath="${prefix}/jzuul-icon.png"/>
+   <tarfileset dir="./etc/artwork" prefix="${prefix}/etc/artwork">
+    <include name="**/*.jpg"/>
+    <include name="**/*.png"/>
+   </tarfileset>
+   <tarfileset dir="./lib" prefix="${prefix}/lib">
+    <include name="xerces.jar"/>
+    <include name="jdom.jar"/>
+   </tarfileset>
+   <tarfileset dir="./" includes="rungamefile,gameditor" mode="555" prefix="${prefix}/"/>
+   <tarfileset dir="./" includes="LICENSE,LICENSE.DE,README" prefix="${prefix}/"/>
+   <tarfileset dir="./lib/swt_linux_motif" prefix="${prefix}/lib/swt_linux_motif"/>
+  </tar>
+ </target>
+ <target name="tar-gz">
+  <gzip src="${dist}/jzuul-bin-linux-motif.tar" destfile="${dist}/jzuul-bin-linux-motif.tar.gz"/>
+  <gzip src="${dist}/jzuul-bin-linux.tar" destfile="${dist}/jzuul-bin-linux.tar.gz"/>
+  <gzip src="${dist}/jzuul-bin-win32.tar" destfile="${dist}/jzuul-bin-win32.tar.gz"/>
+  <gzip src="${dist}/jzuul-bin-macosx.tar" destfile="${dist}/jzuul-bin-macosx.tar.gz"/>
+  <gzip src="${dist}/jzuul-source.tar" destfile="${dist}/jzuul-source.tar.gz"/>
+ </target>
+ <target name="tar-bz2">
+  <bzip2 src="${dist}/jzuul-bin-linux-motif.tar" destfile="${dist}/jzuul-bin-linux-motif.tar.bz2"/>
+  <bzip2 src="${dist}/jzuul-bin-linux.tar" destfile="${dist}/jzuul-bin-linux.tar.bz2"/>
+  <bzip2 src="${dist}/jzuul-bin-win32.tar" destfile="${dist}/jzuul-bin-win32.tar.bz2"/>
+  <bzip2 src="${dist}/jzuul-bin-macosx.tar" destfile="${dist}/jzuul-bin-macosx.tar.bz2"/>
+  <bzip2 src="${dist}/jzuul-source.tar" destfile="${dist}/jzuul-source.tar.bz2"/>
+ </target>
+ <target name="delete-tar">
+  <delete>
+   <fileset dir="${dist}" includes="*.tar"/>
+  </delete>
+ </target>
+ <target name="source-tar">
+  <tar destfile="${dist}/jzuul-source.tar">
+   <tarfileset dir="./" prefix="${prefix}">
+    <exclude name="*CVS*/*"/>
+    <exclude name="*~"/>
+    <exclude name="**/*.class"/>
+    <exclude name="**/*.zip"/>
+    <exclude name="**/*.tar"/>
+    <exclude name="**/*.tar.gz"/>
+    <exclude name="**/*.tar.bz2"/>
+    <exclude name="**/*.sxi"/>
+    <exclude name="**/*.ucd"/>
+    <exclude name="**/.*"/>
+    <exclude name="/etc/website/*"/>
+    <exclude name=".uml/*"/>
+    <exclude name="**/resources/*"/>
+   </tarfileset>
+  </tar>
+ </target>
+</project>
